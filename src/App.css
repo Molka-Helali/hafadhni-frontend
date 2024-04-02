@@ -1,4 +1,42 @@
+body{
+  width: 1440px;
+  height: 900px;
+}
 .active{
   color: blue;
   
+}
+.nav{
+  
+    display: flex; /* palce of navbar  */ 
+    align-items: center; /* Align navbar items vertically */
+    color: #ffffff; /* Set the navbar text color */
+    padding: 10px 20px; /* padding top (vide space in the top)and in the left  */
+    text-decoration: none;
+}
+.Logo img {
+  max-width: 79px; /* Adjust the width as per your requirement */
+  height: auto; /* Maintain aspect ratio */
+}
+.Ellipse1{
+  width: 50%; /* Adjust width as needed */
+  height: 50%; /* Adjust height as needed */
+}
+
+.horizontal-line {
+  width: 1550px; /* Stretches across the entire width */
+   /* Sets the height of the line */
+  /* Creates a subtle gradient effect */
+  margin: 10px 0; /* Adds some margin for spacing */
+}
+.primary-heading{
+padding: 110px 40px;
+}
+.hr-line {
+  width: 50px;
+  margin-top: -120px;
+  margin-left: 41px;
+  border: 1px solid black; /* This creates a thin black line */
+  border-style: inset; /* This creates a slightly indented line */
+  font-weight: bold; /* This makes the line bold */
 }

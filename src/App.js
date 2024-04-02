@@ -1,24 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, NavLink } from 'react-router-dom'; // Updated imports
-import './App.css';
-import Home from './components/Home';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Updated imports
+import "./App.css";
 import Summarize from './components/Summarize';
+import Home from './components/Home';
 import Hafathni from './components/Hafathni';
-import Hafathnipro from "./components/Hafathnipro";
-
+import Hafathnipro from './components/Hafathnipro';
 function App() {
   return (
     <div className="App">
-      {/*router men browserRouter(abbreviation) */}
-      <Router>
-        <nav>
-          <NavLink to="/" exact activeClasseName="active">Home</NavLink>
-          <NavLink to="/Summarize"activeClasseName="active"style={{marginLeft:"12px"}}>Summarize</NavLink>
-          <NavLink to="/Hafathni"activeClasseName="active"style={{marginLeft:"12px"}}>Hafathni</NavLink>
-          <NavLink to="/Hafathnipro"activeClasseName="active"style={{marginLeft:"12px"}}>HAFATHI PRO</NavLink>
-        </nav>
-        <Routes> {/* Use Routes instead of Switch */}
-          <Route  path="/" element={<Home />} /> {/* Use element prop instead of Component */}
+      <Router>       
+        <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/Summarize" element={<Summarize />} />
           <Route path="/Hafathni" element={<Hafathni />} />
           <Route path="/Hafathnipro" element={<Hafathnipro />} />
