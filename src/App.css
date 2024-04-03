@@ -1,6 +1,7 @@
 body{
   width: 1440px;
   height: 900px;
+  font-family: "Manrope", sans-serif;
 }
 .active{
   color: blue;
@@ -8,12 +9,23 @@ body{
 }
 .nav{
   
-    display: flex; /* palce of navbar  */ 
+    display:flex; /* palce of navbar  */ 
     align-items: center; /* Align navbar items vertically */
+  
     color: #ffffff; /* Set the navbar text color */
     padding: 10px 20px; /* padding top (vide space in the top)and in the left  */
     text-decoration: none;
+   
+    
+    
 }
+.HomePhoto img {
+  width: 500px;  
+  position: relative;  
+  bottom: 112px;  
+  left: 500px;  
+}
+
 .Logo img {
   max-width: 79px; /* Adjust the width as per your requirement */
   height: auto; /* Maintain aspect ratio */
@@ -29,8 +41,11 @@ body{
   /* Creates a subtle gradient effect */
   margin: 10px 0; /* Adds some margin for spacing */
 }
+
 .primary-heading{
 padding: 110px 40px;
+font-family: "Vollkorn", serif;
+
 }
 .hr-line {
   width: 50px;
@@ -39,4 +54,55 @@ padding: 110px 40px;
   border: 1px solid black; /* This creates a thin black line */
   border-style: inset; /* This creates a slightly indented line */
   font-weight: bold; /* This makes the line bold */
+}
+.second-heading{
+  padding: 0px 40px ;
+}
+.button_Hafathni{
+  display: inline-block;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  background-color:blue; /* Green background */
+  color: white;
+  position: absolute; /* Enable absolute positioning */
+  bottom: 90px; /* Offset 50px from the top */
+  left: 40px;
+}
+.button_Summarize{
+  display: inline-block;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  background-color:blue; /* Green background */
+  color: white;
+  position: absolute; /* Enable absolute positioning */
+  bottom: 90px; /* Offset 50px from the top */
+  left: 164px;
+}
+.button_Summarize .HiOutlineMicrophone {
+  /* Adjust icon styles here (e.g., margin, color) */
+  margin-right: 5px; /* Add some space between icon and text */
+}
+.login-button{
+  display: inline-block;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  background-color:blue; /* Green background */
+  color: white;
+  position: absolute; /* Enable absolute positioning */
+  top: 20px; /* Offset 50px from the top */
+  right: 140px;
+}
+.try-free-button{
+  display: inline-block;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  background-color:blue; /* Green background */
+  color: white;
+  position: absolute; /* Enable absolute positioning */
+  top: 20px; /* Offset 50px from the top */
+  right: 50px;
 }
