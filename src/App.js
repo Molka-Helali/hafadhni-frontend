@@ -5,6 +5,9 @@ import Summarize from './components/Summarize';
 import Home from './components/Home';
 import Hafathni from './components/Hafathni';
 import Hafathnipro from './components/Hafathnipro';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
+import Upload from './components/Upload';
 function App() {
   return (
     <div className="App">
@@ -14,6 +17,9 @@ function App() {
           <Route path="/Summarize" element={<Summarize />} />
           <Route path="/Hafathni" element={<Hafathni />} />
           <Route path="/Hafathnipro" element={<Hafathnipro />} />
+          <Route path="/Login" element={<Login/>} />
+          <Route path="/SignUp" element={<SignUp/>} />
+          <Route path="/Upload" element={<Upload/>} />
         </Routes>
       </Router>
     </div>
