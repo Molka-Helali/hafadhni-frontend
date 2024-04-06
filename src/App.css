@@ -45,7 +45,7 @@ body{
 }
 .Ellipse2{
   width: 50%; /* Adjust width as needed */
-  height: 50%; /* Adjust height as needed */
+  height: 0%; /* Adjust height as needed */
 }
 
 .horizontal-line {
@@ -389,27 +389,74 @@ height: 46.78px;
 }
 /*upload page*/
 .main {
+  background-color: #fffefe;
+  border: 2px solid #fbf7f7; /* Solid gray border */
+  border-radius: 8.33px; 
+  position: relative;
+  bottom: -50px;
+  left: 400px;
+  height: 900px;
+  width: 600px;
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 2rem;
 }
-
 .upload {
+  
   text-align: center;
+  position: relative;
+  bottom: 250px; 
+}
+.upload-icon{
+position: relative;
+width: 73.42px;
+height: 56.26px;
+color: #1946EE;
+top: 30px;
+left: 65px;
 }
 
+.uploadFromBrowser{
+  background-color: #eeebf7;
+  border: 2px dashed #a091eb; /* Solid gray border */
+  border-radius: 4.3px; 
+  position: relative;
+  bottom: -5px;
+  left: 10px;
+  height: 264px;
+  width: 240px;
+}
+.uploadFromBrowser span {
+  position:relative;
+  top: 55px;
+  left: -25px;
+  font-weight: bold;
+}
+.uploadFromBrowser span::after {
+  content: "\A                 or";  /* Inserts a non-breaking space character */
+  white-space:pre;  /* Preserves whitespace for line break */
+}
+.uploadFromBrowser a {
+  position:relative;
+  top: 55px;
+  left: -15px;
+  font-weight: bold;
+}
+.uploadFromBrowser p {
+  position:relative;
+  top: 55px;
+  left: 1px;
+  color: #81818c;
+  font-size:small;
+ 
+}
 .upload h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
+  margin-left: 1rem;
 }
-
-.upload p {
-  color: gray;
-  margin-bottom: 1rem;
-}
-
 .upload-methods {
   display: flex;
   justify-content: space-around;
@@ -423,19 +470,140 @@ height: 46.78px;
   background-color: #f0f0f0;
   cursor: pointer;
 }
-
+.CopyText{
+  position:relative;
+  top: 5px;
+  left: 30px;
+}
 .upload-progress {
   margin-top: 1rem;
+  margin-right: 28rem;
+  font-weight: 450;
+  color: gray;
+  
 }
 
 .upload-progress-bar {
-  height: 5px;
-  background-color: #ddd;
+  height: 39.82px;
+  width: 505.42px;
+  border: 2px solid rgb(191, 184, 184);
+  border-radius: 8.33px; 
   overflow: hidden;
+  position:relative;
+  top: 1px;
+  left: 185px;
 }
 
 .upload-progress-bar span {
   display: block;
   height: 100%;
   background-color: #007bff;
+  position:relative;
+  bottom: -36px;
+  left: -1px;
 }
+.file-box {
+  display: inline-block;
+  position: relative;
+  height: 30px;
+  width:505px ;
+  left: 200px;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid rgb(200, 198, 198);
+  border-radius: 8.33px;
+  
+}
+.file-box p {
+  position: absolute; /* Position the file name absolutely */
+  top: 0;
+  left: 15px;
+   /* Remove any default margins */
+}
+.remove-icon {
+  cursor: pointer;
+  color: #999;
+  float: right; /* Position the remove icon to the right */
+  position: relative;
+  top: 10px;
+}
+.UploadItButton{
+ 
+  cursor: pointer;
+  background-color: #1946EE;
+  border: #1946EE;
+  border-radius: 5px;
+  color: #fefefe;
+  float: right; /* Position the remove icon to the right */
+  position: relative;
+  top: 10px;
+  left: 200px;
+  width: 180px;
+  height: 38px;
+
+}
+.UploadChek-icon{
+  position: relative;
+  color: #fcfdff;
+  top: -17px;
+  left: -66px;
+  width: 100px;
+  height: 30px;
+}
+.UploadItButton > span { /* Select the text content using a child combinator */
+  position: relative;
+  color: #f8f8fa;
+  top: 8px;
+  left: 6px;
+ 
+}
+.CancelButton{
+  cursor: pointer;
+  background-color: #ffffff;
+  border: 0.5px solid #1946EE;
+  border-radius: 5px ;
+  color: #1946EE;
+  float: right; /* Position the remove icon to the right */
+  position: relative;
+  top: 10px;
+  right: 50px;
+  width: 100px;
+  height: 38px;
+}
+.Cancel-icon{
+  position: relative;
+  color:#1946EE;
+  top: 2px;
+  left: -29px;
+  width: 50px;
+  height: 25px;
+}
+
+/*Page Hafathni*/
+
+.input-container{
+  position: relative;
+  top: 20px;
+  left: 100px;
+  width: 1323px;
+  height:630.67px;
+  border: 2px solid #ccc;
+}
+
+.placeholder-text {
+  position: absolute; /* Position placeholder text absolutely within container */
+  top: 90px; /* Adjust top position as needed */
+  left: 120px; /* Adjust left position as needed */
+  font-size: 14px; /* Example font size */
+  color: #1b3864; /* Example placeholder color */
+  pointer-events: none; /* Prevent interaction with placeholder text */
+}
+.line{
+  position: relative;
+  top: -60px;
+  left: 45px;
+ width: 1325px;
+ border: 0.1px solid #ccc; 
+}
+
+
