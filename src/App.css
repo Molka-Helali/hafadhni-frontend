@@ -588,11 +588,12 @@ left: 65px;
   width: 1323px;
   height:630.67px;
   border: 2px solid #ccc;
+  background-color: transparent;
 }
 
 .placeholder-text {
   position: absolute; /* Position placeholder text absolutely within container */
-  top: 90px; /* Adjust top position as needed */
+  top: 130px; /* Adjust top position as needed */
   left: 120px; /* Adjust left position as needed */
   font-size: 14px; /* Example font size */
   color: #1b3864; /* Example placeholder color */
@@ -605,5 +606,116 @@ left: 65px;
  width: 1325px;
  border: 0.1px solid #ccc; 
 }
+.Copy-icon{
+  position: absolute; /* Position placeholder text absolutely within container */
+  top: 130px; /* Adjust top position as needed */
+  right: 120px; /* Adjust left position as needed */
+  font-size: 14px; /* Example font size */
+  color:#1946EE; /* Example placeholder color */
 
+}
+/*mistake-hafathni*/
+.MistakeButton{
+  cursor: pointer;
+  background-color: transparent;
+  border: 0.5px solid #1946EE;
+  border-radius: 70px ;
+  color: #1946EE;
+  float: right; /* Position the remove icon to the right */
+  position: relative;
+  top: -55px;
+  right: 1200px;
+  width: 100px;
+  height: 38px;
+}
 
+.Mistake-icon{
+  position: relative;
+  color: #ef3f0f;
+  top: -10px;
+  right: 30px;
+  width: 45px;
+  height: 20px;
+}
+.MistakeButton span{
+  position: relative;
+  color: #1946EE;
+  top: 10px;
+  right: -15px;
+  font-weight: bold;
+
+}
+/*score-hafathni*/
+.ScoreButton{
+  cursor: pointer;
+  background-color: transparent;
+  border: 0.5px solid #1946EE;
+  border-radius: 70px ;
+  color: #1946EE;
+  float: right; /* Position the remove icon to the right */
+  position: relative;
+  top: -55px;
+  right: 990px;
+  width: 100px;
+  height: 38px;
+}
+.ScoreButton span{
+  position: relative;
+  color: #1946EE;
+  top: -1px;
+  right: -3px;
+  font-weight: bold;
+
+}
+/*Eye-hafathni*/
+.EyeButton{
+  cursor: pointer;
+  background-color: transparent;
+  border: 0.5px solid #1946EE;
+  border-radius: 70px ;
+  color: #1946EE;
+  float: right; /* Position the remove icon to the right */
+  position: relative;
+  top: -55px;
+  right: 820px;
+  width: 60px;
+  height: 38px;
+}
+.ReplayButton{
+  cursor: pointer;
+  background-color:#1946EE;
+  border: 0.5px solid #1946EE;
+  border-radius: 70px ;
+  color: #ffffff;
+  float: right; /* Position the remove icon to the right */
+  position: relative;
+  top: -55px;
+  left: 150px;
+  width: 58px;
+  height: 36px;
+}
+.MicroButton{
+  cursor: pointer;
+  background-color:#1946EE;
+  border: 0.5px solid #1946EE;
+  border-radius: 70px ;
+  color: #ebeced;
+  float: right; /* Position the remove icon to the right */
+  position: relative;
+  top: -55px;
+  left: 280px;
+  width: 58px;
+  height: 36px;
+}
+.IncorrectWords{
+  position: relative;
+  top: 50px;
+  left:150px ;
+  font-weight: bold;
+}
+.NameOfText{
+  position: relative;
+  top: 50px;
+  right:-1150px ;
+  font-weight: bold;
+}

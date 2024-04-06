@@ -20,15 +20,21 @@ const Upload = () => {
   const handleCanalClick = () => {
     navigate('/Hafathni');
   };
+  /*It is initialized with an empty array [], indicating that no file is initially selected. */
+  /**
+   * The setFiles function is used to update the files*/
   const [files, setFiles] = useState([]);
+  /*representing file information boxes */
   const [fileBoxes, setFileBoxes] = useState([]);
 
   const handleBrowseClick = (event) => {
+  /*This stops something annoying from happening*/
     event.preventDefault();
-
+/*  Creates a new hidden<input> HTML input element of type file.*/
     const inputElement = document.createElement('input');
     inputElement.type = 'file';
     inputElement.multiple = true;
+    /**Allows selecting multiple files at once */
     inputElement.accept = '/*';
 
     inputElement.onchange = (e) => {
@@ -81,7 +87,7 @@ const Upload = () => {
             </div>
           </div>
           <span>If you want to </span>
-          <a href="#" onClick={handleCopyAndPastClick}>copy and paste text,</a><span>you can stop uploading it </span>
+          <a href="#" onClick={handleCopyAndPastClick}>copy and paste text,</a><span>you can stop uploading </span>
 
           <div className="upload-progress">
             {files.length > 0 ? (
