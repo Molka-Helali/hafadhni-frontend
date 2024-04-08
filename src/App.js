@@ -9,6 +9,7 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Upload from './components/Upload';
 import Mistakes from './components/Mistakes';
+import LastMistakes from './components/LastMistakes';
 function App() {
   return (
     <div className="App">
@@ -22,6 +23,7 @@ function App() {
           <Route path="/SignUp" element={<SignUp/>} />
           <Route path="/Upload" element={<Upload/>} />
           <Route path="/Mistakes" element={<Mistakes/>} />
+          <Route path="/LastMistakes" element={<LastMistakes/>} />
         </Routes>
       </Router>
     </div>

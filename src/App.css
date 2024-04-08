@@ -715,7 +715,181 @@ left: 65px;
 }
 .NameOfText{
   position: relative;
+  top: 30px;
+  right:-1210px ;
+  font-weight: bold;
+}
+.box {
+  position: relative;
+  top: 65px;
+  left: 100px;
+  width: 1323px;
+  height:170.67px;
+  border: 2px solid #ccc;
+  background-color: transparent;
+}
+.line-Mi{
+  position: relative;
+  top: -28px;
+  left: 42px;
+  width: 1325px;
+  border: 0.1px solid #ccc; 
+}
+.Expected1{
+  position: relative;
+  top: 30px;
+  left:50px ;
+  font-weight: bold;
+}
+.ExpectedName{
+  position: relative;
+  top: 10px;
+  right:-950px ;
+  font-weight: bold;
+}
+.Recited1{
+  position: relative;
+  top: 75px;
+  left:50px ;
+  font-weight: bold;
+}
+.RecitedName{
+  position: relative;
   top: 50px;
-  right:-1150px ;
+  right:-950px ;
+  font-weight: bold;
+}
+.box2{
+  position: relative;
+  top: 90px;
+  left: 100px;
+  width: 1323px;
+  height:170.67px;
+  border: 2px solid #ccc;
+  background-color: transparent; 
+}
+.line-Mi2{
+  position: relative;
+  top: 9px;
+  left: 42px;
+  width: 1325px;
+  border: 0.1px solid #ccc; 
+}
+.Expected2{
+  position: relative;
+  top: 30px;
+  left:50px ;
+  font-weight: bold;
+}
+.ExpectedName2{
+  position: relative;
+  top: 10px;
+  right:-950px ;
+  font-weight: bold;
+}
+.Recited2{
+  position: relative;
+  top: 75px;
+  left:50px ;
+  font-weight: bold;
+}
+.RecitedName2{
+  position: relative;
+  top: 50px;
+  right:-950px ;
+  font-weight: bold;
+}
+.IncorrectWords2{
+  position: relative;
+  top: 80px;
+  left:150px ;
+  font-weight: bold;
+}
+.NameOfText2{
+  position: relative;
+  top: 60px;
+  right:-1210px ;
+  font-weight: bold;
+}
+.box3{
+  position: relative;
+  top: 100px;
+  left: 100px;
+  width: 1329px;
+  height:66px;
+  border: 2px solid #ccc;
+  background-color: #299F5F; 
+}
+.PastMistakes{
+  position: relative;
+  top: 25px;
+  left:50px ;
+  font-weight: bold;
+}
+.GiBackwardTime-icon{
+  position: relative;
+  top: 2px;
+  right:-1250px ;
+  width: 50px;
+  height: 25px;
+  font-weight: bold;
+}
+/* Last Mistakes*/
+.all-button {
+  background-color:#D9D9D9; /* White background */
+  position: relative;
+  top: 50px;
+  left:150px ;
+  color: #000; /* Black text */
+  border: 1px solid #ACACAC; /* Remove default border */
+  padding: 10px 20px; /* Add padding for spacing */
+  border-radius: 15px; /* Rounded corners */
+  font-weight:600; /* Bold text */
+}
+.boxLastMistakes1{
+  position: relative;
+  top: 75px;
+  left: 100px;
+  width: 1323px;
+  height:170.67px;
+  border: 2px solid #ccc;
+  background-color: transparent; 
+}
+.line-LastMi1{
+  position: relative;
+  top: -65px;
+  left: 42px;
+  width: 1325px;
+  border: 0.1px solid #ccc; 
+}
+.NumberOfMistakes1{
+  position: relative;
+  top: -105px;
+  right:-1300px ;
+  font-weight: bold;
+}
+.line-LastMi2{
+  position: relative;
+  top: -58px;
+  left: 42px;
+  width: 1325px;
+  border: 0.1px solid #ccc; 
+}
+.Historique-score1{
+  position: relative;
+  top: -65px;
+  right:-1250px ;
+  font-weight: bold;
+}
+.ContinueReading1{
+  position: relative;
+  top: -55px;
+  right:-1250px ;
+  font-weight: bold;
+}
+.Name1AfterUploading{
+  position: relative;
+  top: -85px;
+  left:150px ;
   font-weight: bold;
 }

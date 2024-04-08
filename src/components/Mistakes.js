@@ -1,8 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from "../components/NavBar";
 import Ellipse1 from '../Assets/Ellipse1.png';
 import Ellipse2 from '../Assets/Ellipse 2.png';
+import { GiBackwardTime } from "react-icons/gi";
 const Mistakes = () => {
+  const navigate = useNavigate(); // Get the navigate function
+  const handleMistakeClick = () => {
+    navigate('/LastMistakes');
+  };
   return (
     <div>
    <Navbar />
@@ -15,8 +21,31 @@ const Mistakes = () => {
     </div>
     <div className='IncorrectWords'>Incorrect Words</div>
     <div className='NameOfText'>AL-Baqarah-1:40AM</div>
-     
+     {/*Box1 */}
+    <div className="box">
+    <div className='Expected1'>Expected</div>
+    <div className='ExpectedName'>وَالَّذِينَ يُؤْمِنُونَ بِمَا أُنْزِلَ إِلَيْكَ وَمَا أُنْزِلَ مِنْ قَبْلِكَ وَبِالْآخِرَةِ هُمْ يُوقِنُونَ</div>
+    <div className='Recited1'>Recited</div>
+    <div className='RecitedName'>وَالَّذِينَ يُؤْمِنُونَ بِمَا أُنْزِلَ إِلَيْكَ وَمَا أُنْزِلَ مِنْ قَبْلِكَ وَبِالْآخِرَةِ هُمْ يُوقِنُونَ</div>
     </div>
+    <hr className="line-Mi" />
+
+    {/*Box2 */}
+    <div className='IncorrectWords2'>Incorrect Words</div>
+    <div className='NameOfText2'>AL-Baqarah-1:40AM</div>
+    <div className="box2">
+    <div className='Expected2'>Expected</div>
+    <div className='ExpectedName2'>وَالَّذِينَ يُؤْمِنُونَ بِمَا أُنْزِلَ إِلَيْكَ وَمَا أُنْزِلَ مِنْ قَبْلِكَ وَبِالْآخِرَةِ هُمْ يُوقِنُونَ</div>
+    <div className='Recited2'>Recited</div>
+    <div className='RecitedName2'>وَالَّذِينَ يُؤْمِنُونَ بِمَا أُنْزِلَ إِلَيْكَ وَمَا أُنْزِلَ مِنْ قَبْلِكَ وَبِالْآخِرَةِ هُمْ يُوقِنُونَ</div>
+    </div>
+    <hr className="line-Mi2" />
+     {/*Box3*/}
+     <div className="box3" onClick={handleMistakeClick }>
+     <div className='PastMistakes'>See Past Mistakes  </div>
+      <GiBackwardTime  className="GiBackwardTime-icon" /> </div>
+    </div>
+    
   )
 }
 
