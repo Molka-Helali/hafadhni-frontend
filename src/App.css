@@ -1,3 +1,4 @@
+
 body{
   width: 1440px;
   height: 900px;
@@ -24,6 +25,18 @@ body{
   position: relative;  
   bottom: 112px;  
   left: 500px;  
+}
+.langg{
+  color:blue; /* Green background */
+  position: absolute; /* Enable absolute positioning */
+  top: 22px; 
+  right: 500px;
+}
+.langIconn{
+  color:blue; /* Green background */
+  position: absolute; /* Enable absolute positioning */
+  top: 3px; 
+  right: -22px;
 }
 
 .Logo img {
@@ -82,6 +95,12 @@ font-family: "Vollkorn", serif;
   bottom: 250px; /* Offset 50px from the top */
   left: 40px;
 }
+.IconnHafathniii{
+  color: white;
+  position: relative; /* Enable absolute positioning */
+  bottom: -1px; /* Offset 50px from the top */
+  left: 4px;
+}
 .button_Summarize{
   display: inline-block;
   padding: 10px 16px;
@@ -93,10 +112,17 @@ font-family: "Vollkorn", serif;
   bottom: 250px; /* Offset 50px from the top */
   left: 164px;
 }
+.IconnSummarizing{
+  color: white;
+  position: relative; /* Enable absolute positioning */
+  bottom: -1px; /* Offset 50px from the top */
+  left: 4px;
+}
 .button_Summarize .HiOutlineMicrophone {
-  /* Adjust icon styles here (e.g., margin, color) */
+ 
   margin-right: 5px; /* Add some space between icon and text */
 }
+
   /* login-button (home)*/
 .login-buttonHome{
   display: inline-block;
@@ -120,17 +146,12 @@ font-family: "Vollkorn", serif;
   top: 20px; /* Offset 50px from the top */
   right: 80px;
 }
-.lang{
-  color:blue; /* Green background */
-  position: absolute; /* Enable absolute positioning */
-  top: 10px; 
-  right: 350px;
- 
-}
+
 .LoginPh{
   position: relative;  
-  bottom: 0px;  
+  bottom: 10px;  
   left: 200px;  
+  
  
 }
 .Login-heading{
@@ -159,14 +180,16 @@ font-family: "Vollkorn", serif;
   font-size: 13.32px; 
 }
 /* Login form styles */
+.LoginFix{
+  position: relative;
+}
 .login-form {
   background-color:transparent;
   padding: 30px;
-  
   width: 400px;
   height: 430px; /* Adjust width as needed */
   position: fixed;
-  top: 150px;
+  top: 80px;
   right: 200px;
 }
 
@@ -250,13 +273,16 @@ height: 46.78px;
   top: 50px; 
   left: 20px;  
 }
+.allAboutSignup{
+  position: fixed;
+}
 .Signup-form {
-
   width: 400px;
   height: 600px; /* Adjust width as needed */
   position: fixed;
   top: 80px;
   right: 900px;
+ 
 }
 
 .Signup-title {
@@ -395,7 +421,7 @@ height: 46.78px;
   position: relative;
   bottom: -50px;
   left: 400px;
-  height: 900px;
+  height: 700px;
   width: 600px;
   flex: 1;
   display: flex;
@@ -406,8 +432,8 @@ height: 46.78px;
 .upload {
   
   text-align: center;
-  position: relative;
-  bottom: 250px; 
+  position: absolute;
+  bottom: 280px; 
 }
 .upload-icon{
 position: relative;
@@ -580,8 +606,7 @@ left: 65px;
 }
 
 /*Page Hafathni*/
-
-.input-container{
+.innerBox{
   position: relative;
   top: 20px;
   left: 100px;
@@ -589,6 +614,24 @@ left: 65px;
   height:630.67px;
   border: 2px solid #ccc;
   background-color: transparent;
+}
+
+.input-containerHafathni{
+  width: calc(100% - 22px); /* Adjust based on padding and border */
+  height: 470px; /* Set the height of the textarea */
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px solid transparent; /* Transparent border to hide it */
+  border-radius: 4.3px;
+  resize: vertical; /* Allow vertical resizing */
+  font-size: 16px; /* Adjust font size as needed */
+  line-height: 1.5; /* Adjust line height as needed */
+  position: absolute;
+  top: 14px; /* Adjust positioning as needed */
+
+  outline: none; /* Remove outline when focused */
+  background-color:transparent; /* Set background color */
+
 }
 
 .placeholder-text {
@@ -608,8 +651,8 @@ left: 65px;
 }
 .Copy-icon{
   position: absolute; /* Position placeholder text absolutely within container */
-  top: 130px; /* Adjust top position as needed */
-  right: 120px; /* Adjust left position as needed */
+  top: -550px; /* Adjust top position as needed */
+  right: 10px; /* Adjust left position as needed */
   font-size: 14px; /* Example font size */
   color:#1946EE; /* Example placeholder color */
 
@@ -719,7 +762,7 @@ left: 65px;
   right:-1210px ;
   font-weight: bold;
 }
-.box {
+.boxMisToo {
   position: relative;
   top: 65px;
   left: 100px;
@@ -846,6 +889,8 @@ left: 65px;
   border-radius: 15px; /* Rounded corners */
   font-weight:600; /* Bold text */
 }
+/*Box1*/
+
 .boxLastMistakes1{
   position: relative;
   top: 75px;
@@ -868,9 +913,16 @@ left: 65px;
   right:-1300px ;
   font-weight: bold;
 }
+.BsFillEmojiDizzyFill-icon{
+  position: relative;
+  top: 2px;
+  right:100px ;
+  color: red;
+  font-weight: bold;
+}
 .line-LastMi2{
   position: relative;
-  top: -58px;
+  top: -90px;
   left: 42px;
   width: 1325px;
   border: 0.1px solid #ccc; 
@@ -883,13 +935,739 @@ left: 65px;
 }
 .ContinueReading1{
   position: relative;
-  top: -55px;
-  right:-1250px ;
+  top: -85px;
+  right:-1230px ;
   font-weight: bold;
 }
 .Name1AfterUploading{
   position: relative;
   top: -85px;
   left:150px ;
+  font-weight: bold;
+}
+.HiOutlinePhotograph-icon{
+  position: relative;
+  top: -102px;
+  left:125px ;
+  font-weight: bold;
+}
+.BiChevronRight-icon{
+  position: relative;
+  top: -105px;
+  right:-1380px ;
+  font-weight: bold;
+}
+.TimeLastMistakes{
+  position: relative;
+  top: -125px;
+  left:140px ;
+  font-weight: 500;
+  font-size: small;
+}
+/*Box2*/
+.AllboxLastMistakes2{
+  position: relative;
+  top: -120px;
+  left: -5px;
+}
+.boxLastMistakes2{
+  position: relative;
+  top: 75px;
+  left: 100px;
+  width: 1323px;
+  height:170.67px;
+  border: 2px solid #ccc;
+  background-color: transparent; 
+}
+.line-LastMi3{
+  position: relative;
+  top: -65px;
+  left: 42px;
+  width: 1325px;
+  border: 0.1px solid #ccc; 
+}
+.NumberOfMistakes2{
+  position: relative;
+  top: -105px;
+  right:-1300px ;
+  font-weight: bold;
+}
+.BsFillEmojiDizzyFill-icon2{
+  position: relative;
+  top: 2px;
+  right:100px ;
+  color: red;
+  font-weight: bold;
+}
+.line-LastMi4{
+  position: relative;
+  top: -90px;
+  left: 42px;
+  width: 1325px;
+  border: 0.1px solid #ccc; 
+}
+.Historique-score2{
+  position: relative;
+  top: -65px;
+  right:-1250px ;
+  font-weight: bold;
+}
+.ContinueReading2{
+  position: relative;
+  top: -85px;
+  right:-1230px ;
+  font-weight: bold;
+}
+.Name1AfterUploading2{
+  position: relative;
+  top: -85px;
+  left:150px ;
+  font-weight: bold;
+}
+.HiOutlinePhotograph-icon2{
+  position: relative;
+  top: -102px;
+  left:125px ;
+  font-weight: bold;
+}
+.BiChevronRight-icon2{
+  position: relative;
+  top: -105px;
+  right:-1380px ;
+  font-weight: bold;
+}
+.TimeLastMistakes2{
+  position: relative;
+  top: -125px;
+  left:140px ;
+  font-weight: 500;
+  font-size: small;
+}
+/*Box3*/
+.AllboxLastMistakes3{
+  position: relative;
+  top: -250px;
+  left: -5px;
+}
+.boxLastMistakes3{
+  position: relative;
+  top: 75px;
+  left: 100px;
+  width: 1323px;
+  height:170.67px;
+  border: 2px solid #ccc;
+  background-color: transparent; 
+}
+.line-LastMi5{
+  position: relative;
+  top: -65px;
+  left: 42px;
+  width: 1325px;
+  border: 0.1px solid #ccc; 
+}
+.NumberOfMistakes3{
+  position: relative;
+  top: -105px;
+  right:-1300px ;
+  font-weight: bold;
+}
+.BsFillEmojiDizzyFill-icon3{
+  position: relative;
+  top: 2px;
+  right:100px ;
+  color: red;
+  font-weight: bold;
+}
+.line-LastMi6{
+  position: relative;
+  top: -90px;
+  left: 42px;
+  width: 1325px;
+  border: 0.1px solid #ccc; 
+}
+.Historique-score3{
+  position: relative;
+  top: -65px;
+  right:-1250px ;
+  font-weight: bold;
+}
+.ContinueReading3{
+  position: relative;
+  top: -85px;
+  right:-1230px ;
+  font-weight: bold;
+}
+.Name1AfterUploading3{
+  position: relative;
+  top: -85px;
+  left:150px ;
+  font-weight: bold;
+}
+.HiOutlinePhotograph-icon3{
+  position: relative;
+  top: -102px;
+  left:125px ;
+  font-weight: bold;
+}
+.BiChevronRight-icon3{
+  position: relative;
+  top: -105px;
+  right:-1380px ;
+  font-weight: bold;
+}
+.TimeLastMistakes3{
+  position: relative;
+  top: -125px;
+  left:140px ;
+  font-weight: 500;
+  font-size: small;
+}
+/*historique-Score*/
+
+/*Summarize*/
+.box {
+  position: relative;
+  width: 648px;
+  height: 660px;
+  border: 2px solid #ccc;
+  background-color: white;
+  border-radius: 4.3px;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: auto; /* Assurez-vous qu'une barre de défilement apparaît lorsque le contenu dépasse */
+  top: 52px;
+  left: 100px;
+}
+
+.originalFile {
+  position: absolute;
+  top: 104px;
+  left: 352px;
+}
+
+.hellomyfriend {
+  margin-top: 10px; /* Adjust spacing as needed */
+}
+
+.input-container2 {
+  width: calc(100% - 22px); /* Adjust based on padding and border */
+  height: 470px; /* Set the height of the textarea */
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px solid transparent; /* Transparent border to hide it */
+  border-radius: 4.3px;
+  resize: vertical; /* Allow vertical resizing */
+  font-size: 16px; /* Adjust font size as needed */
+  line-height: 1.5; /* Adjust line height as needed */
+  position: absolute;
+  top: 104px; /* Adjust positioning as needed */
+  outline: none; /* Remove outline when focused */
+  background-color:transparent; /* Set background color */
+}
+.lineSum{
+  position: relative;
+  top: -540px;
+  left: -295px;
+  width: 644px;
+  border: 0.1px solid #ccc; 
+}
+.lineSum2{
+  position: relative;
+  top: -30px;
+  left: -297px;
+  width: 644px;
+  border: 0.1px solid #ccc; 
+}
+
+.SummaryFileW{
+  position: relative;
+  top: -736px;
+  left: 1102px;
+}
+.lineSum3{
+  position: relative;
+  top: -20px;
+  left: 415px;
+  width: 650px;
+  border: 0.1px solid #ccc; 
+}
+.boxSumrize22{
+  position: relative;
+  width: 648px;
+  height: 660px;
+  border: 2px solid #ccc;
+  background-color: white;
+  border-radius: 4.3px;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: auto; /* Assurez-vous qu'une barre de défilement apparaît lorsque le contenu dépasse */
+  top: -715px;
+  left: 800px;
+}
+.hellomyfriend2{
+  margin-top: 10px; /* Adjust spacing as needed */
+}
+.input-container3{
+  width: calc(100% - 22px); /* Adjust based on padding and border */
+  height: 470px; /* Set the height of the textarea */
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px solid transparent; /* Transparent border to hide it */
+  border-radius: 4.3px;
+  resize: vertical; /* Allow vertical resizing */
+  font-size: 16px; /* Adjust font size as needed */
+  line-height: 1.5; /* Adjust line height as needed */
+  position: absolute;
+  top: 34px; /* Adjust positioning as needed */
+  outline: none; /* Remove outline when focused */
+  background-color:transparent; /* Set background color */
+}
+
+.MicroButtonSu{
+  cursor: pointer;
+  background-color:blue;
+  border: 0.5px solid blue;
+  border-radius: 70px ;
+  color: #ebeced;
+  float: right; /* Position the remove icon to the right */
+  position: relative;
+  top: -28px;
+  left: -720px;
+  width: 58px;
+  height: 36px;
+}
+.button_SummarizeSum{
+  display: inline-block;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  background-color:blue; /* Green background */
+  color: white;
+  position: absolute; /* Enable absolute positioning */
+  bottom: -2px; /* Offset 50px from the top */
+  left: -120px;
+}
+.FillSum{
+  cursor: pointer;
+  background-color:transparent;
+  border: 0.5px solid blue;
+  border-radius: 70px ;
+  color: blue;
+  float: right; /* Position the remove icon to the right */
+  position: relative;
+  top: -28px;
+  right: 1200px;
+  width: 58px;
+  height: 36px;
+}
+.traductionIcon1{
+  position: relative;
+  top: -625px;
+  left: 140px;
+}
+.lang2{
+  color:blue; /* Green background */
+  position: absolute; /* Enable absolute positioning */
+  top: 20px; 
+  right: 1320px;
+}
+.langIcon{
+  color:blue; /* Green background */
+  position: absolute; /* Enable absolute positioning */
+  top: 3px; 
+  right: -22px;
+}
+.MicroButtonSu2{
+  cursor: pointer;
+  background-color:blue;
+  border: 0.5px solid blue;
+  border-radius: 70px ;
+  color: #ebeced;
+  float: right; /* Position the remove icon to the right */
+  position: relative;
+  top: -768px;
+  left: -14px;
+  width: 58px;
+  height: 36px;
+}
+/*HafathniPro*/
+.text-container{
+  display: flex;
+  justify-content: center;
+  letter-spacing: 10px;
+  font-weight: 500;
+  font-size: 24px;
+}
+.text-container2{
+  display: flex;
+  justify-content: center;
+  letter-spacing: 10px;
+  font-weight: 300;
+  font-size: 24px;
+}
+.languages{
+  display: flex; /* Make the div a flex container */
+  justify-content: flex-start;
+  max-height: 150px;
+  position: relative;
+  top: -88px;
+  left: 155px;
+}
+.BoxPro1{
+  position: relative;
+  top: -px;
+  left: 100px;
+  width: 623px;
+  height:728px;
+  border: 2px solid #ccc;
+  background-color: transparent; 
+}
+.BoxPro2{
+  position: relative;
+  top: -899px;
+  left: 780px;
+  width: 623px;
+  height:728px;
+  border: 2px solid #ccc;
+  background-color: transparent; 
+}
+.BoxPro11{
+  position: relative;
+  top: -766px;
+  left: 101px;
+  width: 623px;
+  height:101px;
+  border: 1px solid #ccc;
+  background-color: #d6d6d6; 
+}
+.BoxPro22{
+  position: relative;
+  top: -1630px;
+  left: 780px;
+  width: 623px;
+  height:101px;
+  border: 1px solid #ccc;
+  background-color: #d6d6d6; 
+}
+.Free{
+  position: relative;
+  top: -858px;
+  left: 300px;
+  font-weight:700;
+}
+.pricing-container {
+  
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.pricing-section {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  position: relative;
+  top: -100px;
+  padding: 2rem;
+  text-align: center;
+  width: 45%;
+  padding-top: 2rem;
+}
+
+.pricing-section.free {
+  background-color: #fff;
+  position: relative;
+  left: -50px;
+ 
+}
+
+.pricing-section h2 {
+  font-size: 2rem;
+  margin-bottom: -1rem;
+  position: relative;
+  top: -30px;
+}
+
+.pricing-section p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  top: -30px;
+}
+
+.pricing-section ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pricing-section li {
+  margin-bottom: 0.5rem;
+}
+
+.pricing-section button {
+  background-color:blue;
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  top: -30px;
+  letter-spacing: 3px;
+}
+.line-pro1{
+  position: relative;
+  top: -20px;
+  left: -5px;
+ width: 240px;
+ border: 0.1px solid #ccc; 
+}
+.green-text {
+  color: rgb(82, 218, 82);
+}
+/*Profil User*/
+.profile{
+  position: relative;
+  top: 100px;
+  left: 500px; 
+  font-weight: 300;
+  font-size: 24px;
+}
+.vertical-lineUser {
+  border-left: 2px solid #b7b6b6;
+  height: 400px;
+  position: absolute;
+  left: 48%;
+  margin-left: -3px;
+  top: 200px;
+}
+.buttons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  top: -60px; 
+  left: 80%;
+  margin-right: 10px;
+}
+.buttons button:first-child {
+  background-color:transparent;
+  border: 2px solid blue;
+  color: blue;
+}
+
+.buttons button:last-child {
+  background-color:blue;
+  color: white;
+}
+.BasicInfo{ 
+  position: relative;
+  left: 800px;
+  top: -9px;
+}
+
+
+.horizontal-lineUser{
+ width: 545px;
+  margin: 10px 0; 
+  position: relative;
+ background-color: #b7b6b6;
+  left: 780px;
+  top: -20px;
+}
+
+
+.penfirstname{
+  position: relative;
+   left: 390px;
+   top: 49px;
+}
+.penlastName{
+  position: relative;
+  left: 390px;
+  top: 49px;
+}
+.penpassword{
+  position: relative;
+  left: 390px;
+  top: 49px;
+}
+.penemail{
+  position: relative;
+  left: 390px;
+  top: 49px;
+}
+/* upload avatar*/
+.avatar-upload {
+  position: relative;
+  top: -250px;
+  left: 300px; 
+}
+
+.avatar-preview {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  top: -140px;
+  left: 160px; 
+}
+
+.avatar-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+ 
+}
+.avatar-preview button {
+ 
+  position: relative;
+  top: -100px;
+  left: 160px; 
+
+}
+
+/* HistoriqueScore*/
+.session-history {
+  border: 1px solid #a8a3a3;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.CurrentSessionnn1 h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  position: relative;
+  left: 195px;
+}
+
+.current-session {
+  position: relative;
+  left: 245px;
+  top:-5px;
+  
+}
+/*Home animation*/
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.primary-heading {
+  animation: fadeInUp 1s ease forwards;
+}
+/*Forget Password*/
+.forgot-password-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px blue;
+  background-color: #fff;
+  position: relative;
+  left: -350px;
+  top: 90px;
+  background: transparent;
+}
+
+.forgot-password-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.forgot-password-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.forgot-password-container label {
+  margin-bottom: 5px;
+}
+
+.forgot-password-container input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.forgot-password-container button {
+  padding: 10px;
+  background-color: blue;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.forgot-password-container button:hover {
+  background-color: #0056b3;
+}
+.keyPassword1{
+  position: relative;  
+  bottom: 0px; 
+  top: 50px; 
+  left: 20px; 
+ 
+}
+/*Confirme Password*/
+.password-confirmation {
+  position: relative;
+  left: -350px;
+  top: 100px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px blue;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 40px;
+ 
+}
+
+.password-confirmation h2 {
+  margin-bottom: 20px;
+}
+
+.password-confirmation label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.password-confirmation input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.password-confirmation button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.password-confirmation button:hover {
+  background-color: #0056b3;
+}
+
+.password-confirmation p {
+  margin-top: 10px;
   font-weight: bold;
 }

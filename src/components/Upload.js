@@ -6,7 +6,7 @@ import Ellipse2 from '../Assets/Ellipse 2.png';
 import { useNavigate } from 'react-router-dom';
 import { TiDelete } from "react-icons/ti";
 import { BiCheck } from "react-icons/bi";
-import { HiX } from "react-icons/hi";
+
 
 const Upload = () => {
   const handleUploadItClick = () => {
@@ -16,12 +16,7 @@ const Upload = () => {
   const handleCopyAndPastClick = () => {
     navigate('/Hafathni');
   };
- 
-  const handleCanalClick = () => {
-    navigate('/Hafathni');
-  };
-  /*It is initialized with an empty array [], indicating that no file is initially selected. */
-  /**
+   /**
    * The setFiles function is used to update the files*/
   const [files, setFiles] = useState([]);
   /*representing file information boxes */
@@ -98,17 +93,13 @@ const Upload = () => {
 
             <div className="selected-files">
               {fileBoxes} {/* Render the file boxes */}
+              </div>
               <div>
             <button className="UploadItButton" onClick={handleUploadItClick}><span >Upload Document</span>
-      <BiCheck className="UploadChek-icon" />
-      </button>
-      <button className="CancelButton" onClick={handleCanalClick}><span style={{ position: 'absolute', top: 10, left: 40 }}>Cancel</span>
-      < HiX className="Cancel-icon" />
-      </button>
+            <BiCheck className="UploadChek-icon" />
+            </button>
             </div>
-            </div>
-          
-          </div>
+             </div>
         </section>
       </main>
  

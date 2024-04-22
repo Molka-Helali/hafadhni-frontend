@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'; // Import NavLink from react-router-dom
-import Logo from '../Assets/Logo.png'; // Adjust the path to your actual logo file
+import Logo from '../Assets/Logo.png'; 
 /*import Ellipse1 from '../Assets/Ellipse1.png';*/
 const Navbar = () => {
   return (
@@ -17,7 +17,7 @@ const Navbar = () => {
       <NavLink to="/Summarize" activeClassName="active" style={{ marginLeft: "38px", textDecoration: 'none' }}>Summarize</NavLink>
       <NavLink to="/Hafathni" activeClassName="active" style={{ marginLeft: "38px", textDecoration: 'none' }}>Hafathni</NavLink>
       <NavLink to="/Hafathnipro" activeClassName="active" style={{ marginLeft: "38px", textDecoration: 'none' }}>Hafathni Pro</NavLink>
-      
+      <NavLink to="/ProfileUser" activeClassName="active" style={{ marginLeft: "168px", textDecoration: 'none' }}>Your Profile</NavLink>
       </div>
     
     </nav>

@@ -1,60 +1,80 @@
-
-import React from 'react';
-import Navbar from "../components/NavBar";
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/NavBar';
+import { HiOutlineMicrophone } from 'react-icons/hi2';
+import { IoDocumentTextOutline } from 'react-icons/io5';
 import Ellipse1 from '../Assets/Ellipse1.png';
 import Ellipse2 from '../Assets/Ellipse 2.png';
 import HomePhoto from '../Assets/HomePh.svg';
-import { HiOutlineMicrophone } from "react-icons/hi2";
-import { IoDocumentTextOutline } from "react-icons/io5";
-import { SlArrowDown } from "react-icons/sl";
 
 const Home = () => {
-    const navigate = useNavigate(); // Get the navigate function
+  const navigate = useNavigate();
 
-    const handleLoginClick = () => {
-        navigate('/Login');
-      };
-      const handleSignUpClick = () => {
-        navigate('/SignUp'); }// Redirect to the /login route
-        const handleHafathniClick = () => {
-          navigate('/Upload'); }// Redirect to the /login route
+  const handleLoginClick = () => {
+    navigate('/Login');
+  };
+
+  const handleSignUpClick = () => {
+    navigate('/SignUp');
+  };
+
+  const handleHafathniClick = () => {
+    navigate('/Upload');
+  };
+
+  const handleSummerizeHomeClick = () => {
+    navigate('/Summarize');
+  };
+
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState('English');
+
+  const handleLanguageChange = (language) => {
+    setSelectedLanguage(language);
+    setShowDropdown(false);
+  };
+
   return (
-    
-    <div>
-    <div className="background-image"style={{ position: 'absolute', top: 0, left: 0 }}>
-    <img src={Ellipse1} alt="background" />
-    </div>
-  
-    <div className="Ellipse2"style={{ position: 'absolute', bottom: 200, right:-200}}>
-    <img src={Ellipse2} alt="" />
-    </div>
-    <Navbar />
-   
-    <hr className="horizontal-line"></hr>
-    <h1 className="primary-heading">
-    Memorize for good with Test mode
-    </h1>
-    <hr className="hr-line"></hr>
-    <p className='second-heading'>Get scored on practice tests to check your <br/>knowledge and prepare for your next big exam.</p>
-    <div className="HomePhoto">
-     <img src={HomePhoto} alt="" />
-     
-      
+    <div style={{ backgroundColor: 'white', position: 'fixed' }}>
+      <div className="background-image" style={{ position: 'absolute', top: 0, left: 0 }}>
+        <img src={Ellipse1} alt="background" />
+      </div>
 
-     </div>
-     <button className="button_Hafathni"onClick={handleHafathniClick}>Hafathni<HiOutlineMicrophone /></button>
-     <button className="button_Summarize">Summarize<IoDocumentTextOutline/></button>
+      <div className="Ellipse2" style={{ position: 'absolute', bottom: 200, right: -200 }}>
+        <img src={Ellipse2} alt="" />
+      </div>
 
-     <button className="login-buttonHome" onClick={handleLoginClick}>
-        Login
-      </button>
-      
-    <button className="try-free-button"onClick={handleSignUpClick}>Try Free</button>
-    <p className='lang'>English<SlArrowDown /></p>
-    </div> 
-   
-  )
+      <Navbar />
+
+      <hr className="horizontal-line" />
+      <h1 className="primary-heading">Memorize for good with Test mode</h1>
+      <hr className="hr-line" />
+      <p className='second-heading'>Get scored on practice tests to check your <br />knowledge and prepare for your next big exam.</p>
+      <div className="HomePhoto">
+        <img src={HomePhoto} alt="" />
+      </div>
+
+      <button className="button_Hafathni" onClick={handleHafathniClick}>Hafathni<HiOutlineMicrophone className="IconnHafathniii" /></button>
+      <button className="button_Summarize" onClick={handleSummerizeHomeClick}>Summarize<IoDocumentTextOutline className="IconnSummarizing" /></button>
+
+      <button className="login-buttonHome" onClick={handleLoginClick}>Login</button>
+
+      <div className='langg'>
+        <div className="langLabel" onClick={() => setShowDropdown(!showDropdown)}>{selectedLanguage}</div>
+        <div className="langIconn" onClick={() => setShowDropdown(!showDropdown)}>
+          <div className={showDropdown ? "arrowIcon rotated" : "arrowIcon"}>&#9660;</div>
+        </div>
+        {showDropdown && (
+  <div className="0">
+    <div onClick={() => handleLanguageChange('English')}>English</div>
+    <div onClick={() => handleLanguageChange('Français')}>Français</div>
+    <div onClick={() => handleLanguageChange('Arabic')}>عربي</div>
+  </div>
+)}
+</div>
+      <button className="try-free-button" onClick={handleSignUpClick}>Try Free</button>
+    </div>
+  );
 }
 
-export default Home
+export default Home;

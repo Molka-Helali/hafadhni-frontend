@@ -1,5 +1,6 @@
+// App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Updated imports
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import "./App.css";
 import Summarize from './components/Summarize';
 import Home from './components/Home';
@@ -10,6 +11,11 @@ import SignUp from './components/SignUp';
 import Upload from './components/Upload';
 import Mistakes from './components/Mistakes';
 import LastMistakes from './components/LastMistakes';
+import HistoriqueScore from './components/HistoriqueScore';
+import LineChartine from './components/LineChartine'; // Corrected import name
+import ProfileUser from './components/ProfileUser';
+import ForgotPassword from './components/ForgotPassword';
+import ConfirmePasword from './components/ConfirmePasword';
 function App() {
   return (
     <div className="App">
@@ -24,6 +30,11 @@ function App() {
           <Route path="/Upload" element={<Upload/>} />
           <Route path="/Mistakes" element={<Mistakes/>} />
           <Route path="/LastMistakes" element={<LastMistakes/>} />
+          <Route path="/HistoriqueScore" element={<HistoriqueScore/>} />
+          <Route path="/LineChartine" element={<LineChartine />} />
+          <Route path="/ProfileUser" element={<ProfileUser />} />
+          <Route path="/ForgotPassword" element={<ForgotPassword />} />
+          <Route path="/ConfirmePasword" element={<ConfirmePasword/>} />
         </Routes>
       </Router>
     </div>

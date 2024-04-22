@@ -15,7 +15,7 @@ function Hafathni() {
     navigate('/Mistakes');
   };
   const handleScoreClick = () => {
-    navigate('/SignUp');
+    navigate('/HistoriqueScore');
   };
   const handleEyeClick= () => {
     navigate('/SignUp');
@@ -26,42 +26,46 @@ function Hafathni() {
   const handleMicroClick= () => {
     navigate('/SignUp');
   };
-  return (
-    <div className="app-container"> {/* Add a main container class */}
-    <div className="background-image"style={{ position: 'absolute', top: 0, left: 0 }}>
-    <img src={Ellipse1} alt="background" />
-    </div>
-  
-    <div className="Ellipse2"style={{ position: 'absolute', bottom: 200, right:-200}}>
-    <img src={Ellipse2} alt="" />
-    </div>
-      <Navbar />
-      <hr className="horizontal-line" /> {/* Semantic class name */}
-      <div className="input-container-hafatni"> {/* Class for input section */}
-     
-      <input className="input-container" type="text" placeholder="" /> {/* Leave placeholder attribute empty */}
-      <span className="placeholder-text">I'm listening to you ...</span> {/* Place placeholder text outside input */}
-      <MdOutlineContentCopy  className="Copy-icon" />
-      <hr className="line" />
-      <button className="MistakeButton" onClick={handleMistakeClick}><span>Mistakes</span>
-      <BsEmojiDizzy  className="Mistake-icon" />
-      </button>
-      <button className="ScoreButton" onClick={handleScoreClick}><span>Score:100%</span>
-      </button>
-      <button className="EyeButton" onClick={handleEyeClick}>
-      <IoEye className="Eye-icon" />
-      </button>
-      <button className="ReplayButton" onClick={handleReplayClick}>
-      <MdReplay  className="Replay-icon" />
-      </button>
-      <button className="MicroButton" onClick={handleMicroClick}>
-      < FaMicrophoneAlt className="Micro-icon" />
-      </button>
-    </div>
-    </div>
 
+  return (
+    <div className="app-container">
+      <div className="background-image" style={{ position: 'absolute', top: 0, left: 0 }}>
+        <img src={Ellipse1} alt="background" />
+      </div>
+      
+      <div className="Ellipse2" style={{ position: 'absolute', bottom: 200, right: -200 }}>
+        <img src={Ellipse2} alt="" />
+      </div>
+      
+      <Navbar />
+      <hr className="horizontal-line" /> 
+    
+      <div className="innerBox"> 
+        <textarea className="input-containerHafathni" placeholder="I'm listening to you ..."></textarea>
+      </div>
+      
+      <hr className="line" />
+      <button className="MistakeButton" onClick={handleMistakeClick} title="Click to view Mistakes">
+        <span>Mistakes</span>
+        <BsEmojiDizzy className="Mistake-icon" />
+      </button>
+      <button className="ScoreButton" onClick={handleScoreClick} title="Click to view Score">
+        <span>Score:100%</span>
+      </button>
+      <button className="EyeButton" onClick={handleEyeClick} title="Click to view Eye">
+        <IoEye className="Eye-icon" />
+      </button>
+      <button className="ReplayButton" onClick={handleReplayClick} title="Click to Replay">
+        <MdReplay className="Replay-icon" />
+      </button>
+      <button className="MicroButton" onClick={handleMicroClick} title="Click to view Micro">
+        <FaMicrophoneAlt className="Micro-icon" />
+        <div>
+          <MdOutlineContentCopy className="Copy-icon" />
+        </div>
+      </button>
+    </div>
   );
 }
 
 export default Hafathni;
-

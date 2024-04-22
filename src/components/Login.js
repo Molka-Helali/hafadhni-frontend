@@ -9,11 +9,15 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
 const Login = () => {
   const navigate = useNavigate(); // Get the navigate function
+  const handleClickForget = () => {
+    navigate('/ForgotPassword');};
   const handleSignUpClick = () => {
     navigate('/SignUp');
+  
   };
   return (
-    <div>
+    <div  style={{ position: 'fixed' }}>
+    <div className='LoginFix'>
     <div className="Ellipse1"style={{ position: 'absolute', top: 0, left: 0 }}>
     <img src={Ellipse1} alt="" />
     </div>
@@ -25,7 +29,7 @@ const Login = () => {
       </div>
     <hr className="horizontal-line"></hr>
     <div className="LoginPh ">
-        <img src={LoginPh} alt="" style={{ height:600}}/>
+        <img src={LoginPh} alt="" style={{ height:500}}/>
       </div> 
       <div className="login-form">
          <h1 className="login-title">Login to your Account</h1>
@@ -36,22 +40,19 @@ const Login = () => {
            <input type="password" id="password" name="password" placeholder="password"/> 
            <RiLockPasswordFill className="password-icon" />
            <div className="group-forgot-Password">
-           <p className="Forgot-password">Forgot password? </p>
+           <p className="Forgot-password">
+        <a href="#" onClick={handleClickForget}>Forgot password?</a>
+      </p>
            <button type="submit" className="login-button1">Login </button>
            <div className="account">
       <span>Don't have an account? </span> {/* Corrected spacing */}
       <a href="#" onClick={handleSignUpClick}>Sign Up</a>
     </div>
     </div>               
-
-
-
-
-
          </form>
        </div>
     </div>
-    
+    </div>
     
   )
 }
