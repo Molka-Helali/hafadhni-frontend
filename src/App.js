@@ -32,8 +32,7 @@ function App() {
           <Route path="/LastMistakes" element={<LastMistakes/>} />
           <Route path="/HistoriqueScore" element={<HistoriqueScore/>} />
           <Route path="/LineChartine" element={<LineChartine />} />
-          <Route path="/profile/:id" element={<ProfileUser />} />
-
+         <Route path="/profile/:id" element={<ProfileUser />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
           <Route path="/ConfirmePasword" element={<ConfirmePasword/>} />
         </Routes>

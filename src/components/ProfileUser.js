@@ -23,7 +23,7 @@ const ProfileUser = () => {
   console.log(params );
   useEffect(() => {
       const fetchData = async () => {
-        const response = await fetch(`http://localhost:3001/v1/api/user/filter/${id}`, { mode: 'cors' })
+        const response = await fetch(`http://localhost:3001/v1/api/user/get/${params.id}`, { mode: 'cors' })
         
              const data = await response.json();
             console.log({data})
@@ -56,8 +56,8 @@ const ProfileUser = () => {
     e.preventDefault();
     try {
       const response = await axios.patch(
-        'http://localhost:3001/v1/api/user/update',
-        { email, password, userName },
+        `http://localhost:3001/v1/api/user/update/${params.id}`,
+        {userName,email },
         {
           headers: {
             'Content-Type': 'application/json',
@@ -108,7 +108,7 @@ const ProfileUser = () => {
             type="text"
             id="userName"
             name="userName"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setUserName(e.target.value)}
             defaultValue={users.userName}
             style={{ padding: '8px', border: '1px solid #ddd', borderRadius: '4px', width: '400px' }}
           />
