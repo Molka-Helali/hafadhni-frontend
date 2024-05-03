@@ -4,7 +4,7 @@ import signupPhoto from '../Assets/signup.svg';
 import { useNavigate } from 'react-router-dom';
 import Ellipse1 from '../Assets/Ellipse1.png';
 import Ellipse2 from '../Assets/Ellipse3.png';
-import Logo from '../Assets/Logo.png';
+import Logo from '../Assets/LLogo.png';
 import { FaUser } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { RiLockPasswordFill } from 'react-icons/ri';
@@ -133,25 +133,16 @@ const SignUp = () => {
               {passwordError}
             </p>
           )}
-
+<div className='move'>
           <button type="submit" className="login-buttonSignup">
             Create Account
           </button>
-
-          <div className="social-buttongoogle">
-            Google
-            <FcGoogle className="Google-icon" />
-          </div>
-
-          <div className="social-buttonfacebook">
-            <FaFacebookF className="Facebook-icon" />
-            Facebook
-          </div>
-<div className="Log">
+        <div className="Log">
             <span>Do you have an account?</span>
             <a href="#" onClick={handleSignUpClick}>
               Login
             </a>
+          </div>
           </div>
         </form>
       </div>

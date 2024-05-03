@@ -40,7 +40,7 @@ body{
 }
 
 .Logo img {
-  max-width: 99px; /* Adjust the width as per your requirement */
+  max-width: 109px; /* Adjust the width as per your requirement */
   height: auto; /* Maintain aspect ratio */
 }
 .background-image{
@@ -415,6 +415,10 @@ height: 46.78px;
   font-size: 13.32px; 
   font-weight: 600;
 }
+.move{
+  position: relative;
+  top: -18px;
+}
 /*upload page*/
 .main {
   background-color: #fffefe;
@@ -651,12 +655,14 @@ left: 65px;
  width: 1325px;
  border: 0.1px solid #ccc; 
 }
-.Copy-icon{
+.CopyButton{
   position: absolute; /* Position placeholder text absolutely within container */
-  top: -550px; /* Adjust top position as needed */
-  right: 10px; /* Adjust left position as needed */
+  top: 125px; /* Adjust top position as needed */
+  right: 150px; /* Adjust left position as needed */
   font-size: 14px; /* Example font size */
   color:#1946EE; /* Example placeholder color */
+  background-color: transparent;
+  border: none;
 
 }
 /*mistake-hafathni*/
@@ -1293,6 +1299,10 @@ left: 65px;
   height: 36px;
 }
 /*HafathniPro*/
+.allMove{
+position: relative;
+left: 115px;
+}
 .text-container{
   display: flex;
   justify-content: center;
@@ -1452,7 +1462,7 @@ left: 65px;
   border-radius: 5px;
   cursor: pointer;
   position: relative;
-  top: -60px; 
+  top: -30px; 
   left: 80%;
   margin-right: 10px;
 }

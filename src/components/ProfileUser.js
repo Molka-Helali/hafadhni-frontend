@@ -91,7 +91,6 @@ const ProfileUser = () => {
       <div className="vertical-lineUser"></div>
       <h2 className="BasicInfo">Basic Info</h2>
       <div className="buttons">
-        <button>CANCEL</button>
         <button onClick={handleUserProfile}>SAVE</button>
       </div>
       <hr className="horizontal-lineUser" />

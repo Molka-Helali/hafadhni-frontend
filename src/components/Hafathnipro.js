@@ -18,6 +18,7 @@ const Hafathnipro = () => {
       </div>
       <div className="Ellipse2"style={{ position: 'absolute', bottom: 200, right:-200}}>
       <img src={Ellipse2} alt="" /></div>
+      <div className='allMove'>
       <div className="text-container">  {/* Added a container class */}
       <span style={{ color: 'black' }}>HAFATHNI</span>
       <span style={{ color: 'blue' }}>PRO</span>
@@ -54,7 +55,8 @@ const Hafathnipro = () => {
       <li style={{ position:'relative',left:-5 }}> <span class="green-text">✔</span><b>Advanced</b> Analytics and MORE!</li>
       </ul>
       </div>
-    </div>
+      </div>
+      </div>
     </div>
   )
 }

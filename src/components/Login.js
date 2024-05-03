@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Ellipse1 from '../Assets/Ellipse1.png';
 import Ellipse2 from '../Assets/Ellipse 2.png'; // Corrected filename
-import Logo from '../Assets/Logo.png';
+import Logo from '../Assets/LLogo.png';
 import LoginPh from '../Assets/LoginPh.svg';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import { MdEmail } from 'react-icons/md';
