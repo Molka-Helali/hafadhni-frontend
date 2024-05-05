@@ -8,8 +8,7 @@ import Logo from '../Assets/LLogo.png';
 import { FaUser } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { RiLockPasswordFill } from 'react-icons/ri';
-import { FcGoogle } from 'react-icons/fc';
-import { FaFacebookF } from 'react-icons/fa';
+
 
 const SignUp = () => {
   const [email, setEmail] = useState('');

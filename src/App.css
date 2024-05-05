@@ -1683,3 +1683,20 @@ left: 115px;
   margin-top: 10px;
   font-weight: bold;
 }
+/*Dachboard admin*/
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}

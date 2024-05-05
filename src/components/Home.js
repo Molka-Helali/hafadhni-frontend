@@ -11,7 +11,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleLoginClick = () => {
-    navigate('/Login');
+    navigate('/DachbordAdmin');
   };
 
   const handleSignUpClick = () => {

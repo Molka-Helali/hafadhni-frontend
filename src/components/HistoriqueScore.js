@@ -20,12 +20,12 @@ const HistoriqueScore = () => {
       <div className="current-session">
         <p>AL-Baqarah</p>
       </div>
-  <div style={{ position: 'absolute', top: 180, left: 220, right: 20, bottom: 200 }}>
+  <div style={{ position: 'absolute', top: 180, left: 220, right: 100, bottom: 200 }}>
         <LineChartine />
    
       <h2>Session History</h2>
     
-        <div className='session-history'>
+        <div className='session-history' >
           <span>Today</span>
           <span>AL-Baqarah</span>
           <span>97.7% EXCELLENT</span>

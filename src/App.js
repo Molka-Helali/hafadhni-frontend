@@ -16,6 +16,8 @@ import LineChartine from './components/LineChartine'; // Corrected import name
 import ProfileUser from './components/ProfileUser';
 import ForgotPassword from './components/ForgotPassword';
 import ConfirmePasword from './components/ConfirmePasword';
+import DachbordAdmin from './components/DachbordAdmin';
+
 function App() {
   return (
     <div className="App">
@@ -35,6 +37,8 @@ function App() {
          <Route path="/profile/:id" element={<ProfileUser />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
           <Route path="/ConfirmePasword" element={<ConfirmePasword/>} />
+          <Route path="/DachbordAdmin" element={<DachbordAdmin/>} />
+          
         </Routes>
       </Router>
     </div>

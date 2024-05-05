@@ -7,6 +7,7 @@ import { FaMicrophoneAlt } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { AiFillFolderOpen } from "react-icons/ai";
 import { SlArrowDown } from "react-icons/sl"
+
 const Summarize = () => {
   const navigate = useNavigate(); 
   const handleMicroClick = () => {
