@@ -1,29 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import Navbar from '../components/NavBar';
 import Ellipse1 from '../Assets/Ellipse1.png';
 import Ellipse2 from '../Assets/Ellipse4.png';
 import { FaPenSquare } from 'react-icons/fa';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 
-import { useParams } from 'react-router-dom';
 const DashboardAdmin = () => {
   const [users, setUsers] = useState([]);
+ 
 
-  const params = useParams();
-  
   useEffect(() => {
     axios.get('http://localhost:3001/v1/api/user/')
       .then(response => setUsers(response.data))
       .catch(error => console.log(error));
   }, []);
 
-  const handleSumbit = (id) => {
+  const handleDelete = (id) => {
     const conf = window.confirm("Do you want to delete?");
     if (conf) {
-      axios.delete(`http://localhost:3001/v1/api/user/delete/`+id)
+      axios.delete(`http://localhost:3001/v1/api/user/delete/` + id)
         .then(res => {
           alert('Record has been deleted');
+          // You might want to update the user list after deletion
         })
         .catch(err => console.log(err));
     }
@@ -48,19 +48,21 @@ const DashboardAdmin = () => {
           </tr>
         </thead>
         <tbody>
-       {users.map(user =>   {
-           return <tr key={user.id}>
-             <td>{user.userName}</td>
+          {users.map(user => (
+            <tr key={user.id}>
+              <td>{user.userName}</td>
               <td>{user.email}</td>
               <td style={{ position: 'relative', left: 105 }}>
-                <FaPenSquare style={{ color: 'red', fontWeight: 'bold', marginRight: 15 }} />
-                <button onClick={() => handleSumbit(user._id)} style={{ border: 'none', background: 'transparent' }}>
+                {/* Use Link component for navigation */}
+                <Link to={`/AdminEdit/${user._id}`}>
+                  <FaPenSquare style={{ color: 'red', fontWeight: 'bold', marginRight: 15 }} />
+                </Link>
+                <button onClick={() => handleDelete(user._id)} style={{ border: 'none', background: 'transparent' }}>
                   <RiDeleteBin6Line />
                 </button>
               </td>
             </tr>
-            })
-        }
+          ))}
         </tbody>
       </table>
     </div>

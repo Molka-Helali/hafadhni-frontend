@@ -30,11 +30,14 @@ const Login = () => {
       );
       if (response.data.success) {
         console.log('User logged in successfully');
-        const userId = response.data.id; 
-        localStorage.setItem('userId', userId);
-        navigate(`/profile/${userId}`);
-
-
+        const { role, id } = response.data; // Assuming response contains user role
+        console.log(response.data)
+        localStorage.setItem('userId', id);
+        if (role === 'Admin') {
+          navigate('/DachbordAdmin');
+        } else {
+          navigate(`/profile/${id}`);
+        }
       } else {
         console.log('You should register first:', email);
         setEmailError(response.data.msg);
@@ -67,11 +70,11 @@ const Login = () => {
           <img src={Ellipse2} alt="" />
         </div>
         <div className="Logo">
-          <img src={Logo} alt="" />
+          <img src={Logo} alt="Logo" />
         </div>
         <hr className="horizontal-line" />
         <div className="LoginPh ">
-          <img src={LoginPh} alt="" style={{ height: 500 }} />
+          <img src={LoginPh} alt="Login Photo" style={{ height: 500 }} />
         </div>
         <div className="login-form">
           <h1 className="login-title">Login to your Account</h1>

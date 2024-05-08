@@ -16,7 +16,9 @@ import LineChartine from './components/LineChartine'; // Corrected import name
 import ProfileUser from './components/ProfileUser';
 import ForgotPassword from './components/ForgotPassword';
 import ConfirmePasword from './components/ConfirmePasword';
+
 import DachbordAdmin from './components/DachbordAdmin';
+import AdminEdit from './components/AdminEdit';
 
 function App() {
   return (
@@ -38,7 +40,9 @@ function App() {
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
           <Route path="/ConfirmePasword" element={<ConfirmePasword/>} />
           <Route path="/DachbordAdmin" element={<DachbordAdmin/>} />
-          
+          <Route path="/AdminEdit/:id" element={<AdminEdit/>} />
+        
+
         </Routes>
       </Router>
     </div>
