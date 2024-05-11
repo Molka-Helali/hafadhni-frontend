@@ -19,6 +19,7 @@ import ConfirmePasword from './components/ConfirmePasword';
 
 import DachbordAdmin from './components/DachbordAdmin';
 import AdminEdit from './components/AdminEdit';
+import Modal from './components/Modal'
 
 function App() {
   return (
@@ -41,7 +42,7 @@ function App() {
           <Route path="/ConfirmePasword" element={<ConfirmePasword/>} />
           <Route path="/DachbordAdmin" element={<DachbordAdmin/>} />
           <Route path="/AdminEdit/:id" element={<AdminEdit/>} />
-        
+          <Route path=" /Modal" element={< Modal/>} />
 
         </Routes>
       </Router>

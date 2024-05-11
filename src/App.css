@@ -133,7 +133,7 @@ font-family: "Vollkorn", serif;
   color: white;
   position: absolute; /* Enable absolute positioning */
   top: 20px; /* Offset 50px from the top */
-  right: 200px;
+  right: 220px;
 }
 .try-free-button{
   display: inline-block;
@@ -869,12 +869,12 @@ left: 65px;
   width: 1329px;
   height:66px;
   border: 2px solid #ccc;
-  background-color: #299F5F; 
+  background-color: #c6ccf4; 
 }
 .PastMistakes{
   position: relative;
-  top: 25px;
-  left:50px ;
+  top: 22px;
+  left:30px ;
   font-weight: bold;
 }
 .GiBackwardTime-icon{
@@ -1263,7 +1263,7 @@ left: 65px;
   color: blue;
   float: right; /* Position the remove icon to the right */
   position: relative;
-  top: -28px;
+  top: -768px;
   right: 1200px;
   width: 58px;
   height: 36px;
@@ -1699,4 +1699,47 @@ td {
 
 th {
   background-color: #f2f2f2;
+}
+body.active-modal {
+  overflow-y: hidden;
+}
+
+.btn-modal {
+  padding: 10px 20px;
+  display: block;
+  margin: 100px auto 0;
+  font-size: 18px;
+}
+
+.modal, .overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(49,49,49,0.8);
+}
+.modal-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 3px;
+  max-width: 600px;
+  min-width: 300px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
 }

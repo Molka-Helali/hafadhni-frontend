@@ -8,7 +8,7 @@ import { GiBackwardTime } from "react-icons/gi";
 const Mistakes = () => {
   const navigate = useNavigate(); // Get the navigate function
   const handleMistakeClick = () => {
-    navigate('/LastMistakes');
+    navigate('/HistoriqueScore');
   };
   return (
     <div>
@@ -43,7 +43,7 @@ const Mistakes = () => {
     <hr className="line-Mi2" />
      {/*Box3*/}
      <div className="box3" onClick={handleMistakeClick }>
-     <div className='PastMistakes'>See Past Mistakes  </div>
+     <div className='PastMistakes'>Check your score history </div>
       <GiBackwardTime  className="GiBackwardTime-icon" /> </div>
     </div>
     

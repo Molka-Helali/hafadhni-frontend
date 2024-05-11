@@ -1,21 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from "./NavBar";
 import Ellipse1 from '../Assets/Ellipse1.png';
 import Ellipse2 from '../Assets/Ellipse 2.png';
 import traduction from '../Assets/traduction.svg';
 import { FaMicrophoneAlt } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
-import { AiFillFolderOpen } from "react-icons/ai";
-import { SlArrowDown } from "react-icons/sl"
 
+import { SlArrowDown } from "react-icons/sl"
+import Modal from '../components/Modal';
+import axios from "axios"
 const Summarize = () => {
-  const navigate = useNavigate(); 
-  const handleMicroClick = () => {
-    navigate('/Hafathni');
-  };
-  const handleFILClick = () => {
-    navigate('/Upload');
-  };
+  const [text, setText] = useState("");
+  var userid = localStorage.getItem("userId");
+
+
+
+ const navigate = useNavigate();
+ const handleMicroClick = async () => {
+   try {
+     await axios.post('http://localhost:3001/v1/api/essai/text', { text:text , userId:userid  });
+     console.log('Text added successfully to the database!');
+     navigate(`/Hafathni?text=${text}`);
+   } catch (error) {
+     console.error('Error adding text to the database:', error.message);
+   }
+ };
+ 
  
   return (
     <div>
@@ -30,10 +40,10 @@ const Summarize = () => {
       <div className="originalFile">Original File</div>
       <div className="box">
             <div className='hellomyfriend'>
-                <textarea className="input-container2" placeholder=""></textarea>
+                <textarea className="input-container2" placeholder="" onChange={e=>setText(e.target.value)}></textarea>
             </div>
             </div>
-       
+      
       <hr className="lineSum" />
       <hr className="lineSum2" />
     <div>
@@ -45,9 +55,7 @@ const Summarize = () => {
       </button>
       </div>
       
-      <button className="FillSum" onClick={handleFILClick}>
-      <  AiFillFolderOpen className="FillFolderSum" />
-      </button>
+   
       </div>
       <div className="traductionIcon1">
         <img src={traduction} alt="" />
@@ -58,7 +66,7 @@ const Summarize = () => {
       <div className="SummaryFileW">Summary File</div>
       <div className="boxSumrize22">
      <div className='hellomyfriend2'>
-     <textarea className="input-container3" placeholder=""></textarea>
+     <textarea className="input-container3" placeholder="" onChange={e=>setText(e.target.value)}></textarea>
     
      </div>
      </div>
@@ -66,6 +74,7 @@ const Summarize = () => {
      <button className="MicroButtonSu2" onClick={handleMicroClick}>
      < FaMicrophoneAlt className="Micro-iconSu2" />
      </button>
+     <Modal />
      </div>
   
   )

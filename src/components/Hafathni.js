@@ -3,11 +3,14 @@ import React, { useState, useEffect } from 'react';
 import Ellipse1 from '../Assets/Ellipse1.png';
 import Ellipse2 from '../Assets/Ellipse 2.png'; // Corrected import statement
 import Navbar from '../components/NavBar';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { BsEmojiDizzy } from 'react-icons/bs';
+import { IoSend } from "react-icons/io5";
+
 import { IoEye } from 'react-icons/io5';
 import { FaMicrophoneAlt } from 'react-icons/fa';
 import { MdReplay } from 'react-icons/md';
+import axios from "axios"
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 function Hafathni() {
@@ -15,8 +18,22 @@ function Hafathni() {
   const [listening, setListening] = useState(false);
   const [textVisible, setTextVisible] = useState(true); // State to control text visibility
   const navigate = useNavigate();
+  const location = useLocation();
 
+  console.log(location)
+  const queryParams = new URLSearchParams(location.search);
+  const text = queryParams.get('text');
+  var userid = localStorage.getItem("userId");
 
+  const SendContent= async() =>
+    {
+      try {
+        await axios.post('http://localhost:3001/v1/api/essai/text/hafathni  ', { content:recordedText , userId:userid });
+        console.log('Text added successfully to the database!');
+      } catch (error) {
+        console.error('Error adding text to the database:', error.message);
+      }
+    }
 
   const startListening = () => {
     setListening(true);
@@ -65,7 +82,7 @@ function Hafathni() {
           <textarea
             className="input-containerHafathni"
             placeholder="I'm listening to you..."
-            value={recordedText}
+            value={text || recordedText || ""}
             onChange={(e) => setRecordedText(e.target.value)} // Added onChange event handler
           ></textarea>
         )}
@@ -90,7 +107,10 @@ function Hafathni() {
       <button className="MicroButton" onClick={listening ? stopListening : startListening} title={listening ? "Stop Microphone" : "Start Microphone"}>
         <FaMicrophoneAlt className={listening ? "Micro-icon active" : "Micro-icon"} />
       </button>
-
+      <button className="ReplayButton"  onClick={SendContent} title="Click to Replay">
+        <IoSend className="Replay-icon" />
+      </button>
+    
     </div>
   );
 }

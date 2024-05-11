@@ -10,13 +10,7 @@ import HomePhoto from '../Assets/HomePh.svg';
 const Home = () => {
   const navigate = useNavigate();
 
-  const handleLoginClick = () => {
-    navigate('/Login');
-  };
 
-  const handleSignUpClick = () => {
-    navigate('/SignUp');
-  };
 
   const handleHafathniClick = () => {
     navigate('/Upload');
@@ -57,7 +51,7 @@ const Home = () => {
       <button className="button_Hafathni" onClick={handleHafathniClick}>Hafathni<HiOutlineMicrophone className="IconnHafathniii" /></button>
       <button className="button_Summarize" onClick={handleSummerizeHomeClick}>Summarize<IoDocumentTextOutline className="IconnSummarizing" /></button>
 
-      <button className="login-buttonHome" onClick={handleLoginClick}>Login</button>
+   
 
       <div className='langg'>
         <div className="langLabel" onClick={() => setShowDropdown(!showDropdown)}>{selectedLanguage}</div>
@@ -66,13 +60,13 @@ const Home = () => {
         </div>
         {showDropdown && (
   <div className="0">
-    <div onClick={() => handleLanguageChange('English')}>English</div>
     <div onClick={() => handleLanguageChange('Français')}>Français</div>
     <div onClick={() => handleLanguageChange('Arabic')}>عربي</div>
   </div>
 )}
 </div>
-      <button className="try-free-button" onClick={handleSignUpClick}>Try Free</button>
+      
+
     </div>
   );
 }
