@@ -10,7 +10,9 @@ import { IoSend } from "react-icons/io5";
 import { IoEye } from 'react-icons/io5';
 import { FaMicrophoneAlt } from 'react-icons/fa';
 import { MdReplay } from 'react-icons/md';
-import axios from "axios"
+import axios from "axios";
+import ModalInHafathni from '../components/ModalInHafathni';
+
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 function Hafathni() {
@@ -25,6 +27,7 @@ function Hafathni() {
   const text = queryParams.get('text');
   var userid = localStorage.getItem("userId");
 
+
   const SendContent= async() =>
     {
       try {
@@ -34,7 +37,7 @@ function Hafathni() {
         console.error('Error adding text to the database:', error.message);
       }
     }
-
+ 
   const startListening = () => {
     setListening(true);
     SpeechRecognition.startListening({ continuous: true });
@@ -45,7 +48,7 @@ function Hafathni() {
     SpeechRecognition.stopListening();
   };
 
-  const { resetTranscript, transcript } = useSpeechRecognition();
+  const { resetTranscript, transcript} = useSpeechRecognition();
 
   useEffect(() => {
     setRecordedText(transcript);
@@ -89,7 +92,8 @@ function Hafathni() {
       </div>
 
       <hr className="line" />
-      <button className="MistakeButton" onClick={handleMistakeClick} title="Click to view Mistakes">
+     <div style={{ position: 'relative ', left: 50 }}>
+     <button className="MistakeButton" onClick={handleMistakeClick} title="Click to view Mistakes">
         <span>Mistakes</span>
         <BsEmojiDizzy className="Mistake-icon" />
       </button>
@@ -99,6 +103,10 @@ function Hafathni() {
       <button className="EyeButton" onClick={handleEyeClick} title="Click to view Eye">
         <IoEye className={textVisible ? "Eye-icon" : "Eye-icon crossed-out"} />
       </button>
+     </div>
+      <button className="ReplayButton" style={{ position: 'relative ', top: -55, left: 230 }} onClick={SendContent} title="Click to Replay">
+        <IoSend className="Replay-icon" />
+      </button>
       <button className="ReplayButton" onClick={resetTranscript} title="Click to Replay">
         <MdReplay className="Replay-icon" />
       </button>
@@ -107,9 +115,11 @@ function Hafathni() {
       <button className="MicroButton" onClick={listening ? stopListening : startListening} title={listening ? "Stop Microphone" : "Start Microphone"}>
         <FaMicrophoneAlt className={listening ? "Micro-icon active" : "Micro-icon"} />
       </button>
-      <button className="ReplayButton"  onClick={SendContent} title="Click to Replay">
-        <IoSend className="Replay-icon" />
-      </button>
+
+      <ModalInHafathni />
+  
+
+    
     
     </div>
   );

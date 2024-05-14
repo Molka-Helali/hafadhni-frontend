@@ -1726,6 +1726,7 @@ body.active-modal {
 }
 .modal-content {
   position: absolute;
+ height: 450px;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -1743,3 +1744,38 @@ body.active-modal {
   right: 10px;
   padding: 5px 7px;
 }
+/*Modal Sumrizz */
+.centered-container {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;
+
+}
+.blue-button {
+  background-color:#dbe0f3; /* Blue sky background color */
+  border: none;
+  border-radius: 50%; /* Makes the button circular */
+  padding: 10px; /* Adjust padding as needed */
+  cursor: pointer;
+  display: inline-flex; /* Aligns the icon properly */
+  justify-content: center; 
+  align-items: center; 
+  position: relative; /* Centers vertically */
+  top: -25px;
+}
+
+.icon {
+  color: blue; /* Blue color for the icon */
+  font-size: 24px; /* Adjust icon size as needed */
+}
+.trash {
+  position: relative;
+  top: -28px;
+  left: 277px;
+  width: 18px; /* Adjust the width and height as needed for the icon */
+  height: 23px;
+  padding: 8px; /* Increase the padding to make the background bigger */
+  background-color: #909ed1; /* Change to the desired background color */
+  border-radius: 50%;
+}
+

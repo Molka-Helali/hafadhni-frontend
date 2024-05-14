@@ -1,17 +1,46 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { AiFillFolderOpen } from "react-icons/ai";
-import { MdOutlineFileUpload } from "react-icons/md";
+import { MdOutlineFileUpload, MdOutlineClear } from "react-icons/md";
 import { FaTrashAlt } from "react-icons/fa";
-import { MdOutlineClear } from "react-icons/md";
+import axios from "axios";
 
 export default function Modal({ openModal }) {
   const [modal, setModal] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState([]);
+  const [_id, setId] = useState(null);
+  const [users, setUsers] = useState(null); // Define setUsers
+
   const fileInputRef = useRef(null);
 
   const toggleModal = () => {
     setModal(!modal);
   };
+
+  const fetchUserPhotos = async (_id) => {
+    try {
+      const formData = new FormData();
+      formData.append("_id", _id); // Assuming userId is passed as a prop
+      console.log("success");
+      selectedFiles.forEach((file) => {
+        formData.append("files", file);
+      });
+
+      await axios.post("http://localhost:3001/v1/api/essai/create",  {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      // Optionally, you can fetch updated user data after upload
+      // For example: fetchUserPhotos(userId);
+      
+      // Close modal after successful upload
+      toggleModal();
+    } catch (error) {
+      console.error("Error uploading files:", error);
+    }
+  };
+  
 
   const handleFileChange = (event) => {
     const files = event.target.files;
@@ -22,28 +51,11 @@ export default function Modal({ openModal }) {
     setSelectedFiles([...selectedFiles, ...files]);
   };
 
-  const resetFiles = () => {
-    setSelectedFiles([]); // Reset selected files
-    fileInputRef.current.value = null; // Reset file input value
-  };
-
-  useEffect(() => {
-    if (modal) {
-      document.body.classList.add("active-modal");
-    } else {
-      document.body.classList.remove("active-modal");
-    }
-    // Clean up the class on component unmount
-    return () => {
-      document.body.classList.remove("active-modal");
-    };
-  }, [modal]);
-
   const handleOpenModal = () => {
     if (typeof openModal === "function") {
       openModal();
     }
-    toggleModal(); // Toggle modal after opening
+    toggleModal();
   };
 
   const removeFile = (index) => {
@@ -53,13 +65,13 @@ export default function Modal({ openModal }) {
   };
 
   const handleUploadClick = () => {
-    fileInputRef.current.click(); // Trigger file input click
+    fileInputRef.current.click();
   };
 
   return (
     <>
       <div onClick={handleOpenModal}>
-        <button className="FillSum">
+        <button className="FillSum" style={{ position: 'relative', top: -55, left: -830 }}>
           <AiFillFolderOpen className="FillFolderSum" />
         </button>
       </div>
@@ -68,20 +80,17 @@ export default function Modal({ openModal }) {
         <div className="modal">
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
-            <div
-              className="centered-container"
+            <div className="centered-container"
               style={{
                 border: "2px dotted #A5B5F1",
                 padding: "40px",
                 position: "relative",
                 top: "55px",
-                height: "55px",
-              }}
-            >
-              <button className="blue-button" onClick={handleUploadClick}>
+                height: "55px"
+              }}>
+              <button className="blue-button" onClick={handleUploadClick} disabled={selectedFiles.length >= 3}>
                 <MdOutlineFileUpload className="icon" />
               </button>
-              {/* Hidden file input */}
               <input
                 type="file"
                 ref={fileInputRef}
@@ -92,7 +101,7 @@ export default function Modal({ openModal }) {
             </div>
             <h2 style={{ color: "blue", position: "relative", right: -85, top: -25 }}>Upload File </h2>
             {selectedFiles.map((file, index) => (
-              <div key={index} className="file-name" style={{ width: "300px", height: "30px" }}>
+              <div key={index} className="file-name" style={{ width: "300px", height: "30px" }} >
                 <p>{file.name}</p>
                 <div onClick={() => removeFile(index)}>
                   <FaTrashAlt className="trash" />
@@ -102,28 +111,31 @@ export default function Modal({ openModal }) {
             <button className="close-modal" style={{ border: "none", color: "black", width: "25px", height: "40px" }} onClick={toggleModal}>
               <MdOutlineClear />
             </button>
-            {/* Upload Button */}
-            <button className="upload-button" style={{ width: "319px", position: "relative", top: "2px", left: "2px" }} disabled={selectedFiles.length === 0} onClick={resetFiles}>
-              Upload
-            </button>
+            <button className="upload-button" style={{ width: 319, position: "relative", top: "2px", left: "2px" }} disabled={selectedFiles.length === 0}>Upload</button>
           </div>
         </div>
       )}
       <style jsx>{`
         .file-name {
           color: black;
-          background-color: #dbe0f3; /* Transparent background */
-          border: 1px solid #dbe0f3; /* Grey border */
+          background-color: #dbe0f3;
+          border: 1px solid #dbe0f3;
           padding: 10px;
           margin-top: 10px;
           border-radius: 20px;
         }
-
         .file-name p {
           margin: 0;
         }
-
-        /* Style for the Upload button */
+        .image-box {
+          background-color: rgba(255, 255, 255, 0.8);
+          border: 1px solid grey;
+          padding: 10px;
+          margin-top: 10px;
+        }
+        .selected-image {
+          margin: 0;
+        }
         .upload-button {
           background-color: blue;
           color: #fff;
@@ -133,7 +145,6 @@ export default function Modal({ openModal }) {
           margin-top: 20px;
           cursor: pointer;
         }
-
         .upload-button:hover {
           background-color: #0056b3;
         }
