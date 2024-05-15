@@ -1,14 +1,15 @@
 import React, { useState, useRef } from "react";
+import axios from "axios";
 import { AiFillFolderOpen } from "react-icons/ai";
 import { MdOutlineFileUpload, MdOutlineClear } from "react-icons/md";
 import { FaTrashAlt } from "react-icons/fa";
-import axios from "axios";
 
 export default function Modal({ openModal }) {
   const [modal, setModal] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState([]);
-  const [uploadStatus, setUploadStatus] = useState(null); // New state for upload status
+  const [uploadStatus, setUploadStatus] = useState(null);
   const fileInputRef = useRef(null);
+  const userId = localStorage.getItem("userId"); // Get userId from localStorage
 
   const toggleModal = () => {
     setModal(!modal);
@@ -18,24 +19,22 @@ export default function Modal({ openModal }) {
     try {
       const formData = new FormData();
       selectedFiles.forEach((file) => {
-        formData.append("images[]", file); // Append files to FormData
+        formData.append("images", file);
       });
+      formData.append("userId", userId); // Append userId to formData
 
-      const response = await axios.post("http://localhost:3001/v1/api/essai/create", formData); // Send formData with request
+      const response = await axios.post("http://localhost:3001/v1/api/essai/create", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       console.log(response.data);
 
       setUploadStatus("success");
+      setSelectedFiles([]);
     } catch (error) {
-      if (error.response) {
-        console.error("Server Error:", error.response.data);
-        setUploadStatus("error");
-      } else if (error.request) {
-        console.error("No response received:", error.request);
-        setUploadStatus("error");
-      } else {
-        console.error("Request Error:", error.message);
-        setUploadStatus("error");
-      }
+      console.error("Upload Error:", error);
+      setUploadStatus("error");
     }
   };
 
@@ -71,11 +70,13 @@ export default function Modal({ openModal }) {
 
   return (
     <>
-      <div onClick={handleOpenModal}>
-        <button className="FillSum" style={{ position: 'relative', top: -55, left: -830 }}>
-          <AiFillFolderOpen className="FillFolderSum" />
-        </button>
-      </div>
+      {!modal && (
+        <div onClick={handleOpenModal}>
+          <button className="FillSum" style={{ position: 'relative', top: -55, left: -830 }}>
+            <AiFillFolderOpen className="FillFolderSum" />
+          </button>
+        </div>
+      )}
 
       {modal && (
         <div className="modal">
@@ -115,7 +116,7 @@ export default function Modal({ openModal }) {
               disabled={selectedFiles.length === 0}
               onClick={() => {
                 handleUploadClick();
-                setUploadStatus(null); // Reset upload status when button is clicked
+                setUploadStatus(null);
               }}
             >
               Upload
@@ -137,18 +138,44 @@ export default function Modal({ openModal }) {
           margin-top: 10px;
           border-radius: 20px;
         }
+
         .file-name p {
           margin: 0;
         }
-        .image-box {
-          background-color: rgba(255, 255, 255, 0.8);
-          border: 1px solid grey;
-          padding: 10px;
-          margin-top: 10px;
+
+        .modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          z-index: 1000;
         }
-        .selected-image {
-          margin: 0;
+
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          cursor: pointer;
         }
+
+        .modal-content {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: white;
+          padding: 20px;
+          border-radius: 5px;
+        }
+
+        .centered-container {
+          text-align: center;
+        }
+
         .upload-button {
           background-color: blue;
           color: #fff;
@@ -158,9 +185,21 @@ export default function Modal({ openModal }) {
           margin-top: 20px;
           cursor: pointer;
         }
+
         .upload-button:hover {
           background-color: #0056b3;
         }
+
+        .close-modal {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+        }
+
+        /* Add your additional styles here */
       `}</style>
     </>
   );
