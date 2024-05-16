@@ -9,34 +9,33 @@ export default function Modal({ openModal }) {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [uploadStatus, setUploadStatus] = useState(null);
   const fileInputRef = useRef(null);
-  const _id = localStorage.getItem("_id"); // Get userId from localStorage
+
 
   const toggleModal = () => {
     setModal(!modal);
   };
-
-  const fetchUserPhotos = async () => {
+const fetchUserPhotos = async () => {
     try {
-      const formData = new FormData();
-      selectedFiles.forEach((file) => {
-        formData.append("images", file);
-      });
-      formData.append("_id", _id); // Append userId to formData
+        const formData = new FormData();
+        selectedFiles.forEach((file) => {
+            formData.append("images", file);
+        });
+     
+      
+        const response = await axios.post("http://localhost:3001/v1/api/essai/create", formData, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+        });
+        console.log(response.data);
 
-      const response = await axios.post("http://localhost:3001/v1/api/essai/create", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      console.log(response.data);
-
-      setUploadStatus("success");
-      setSelectedFiles([]);
+        setUploadStatus("success");
+        setSelectedFiles([]);
     } catch (error) {
-      console.error("Upload Error:", error);
-      setUploadStatus("error");
+        console.error("Upload Error:", error);
+        setUploadStatus("error");
     }
-  };
+};
 
   const handleFileChange = (event) => {
     const files = event.target.files;
