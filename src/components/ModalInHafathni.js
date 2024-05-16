@@ -9,7 +9,7 @@ export default function Modal({ openModal }) {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [uploadStatus, setUploadStatus] = useState(null);
   const fileInputRef = useRef(null);
-  const userId = localStorage.getItem("userId"); // Get userId from localStorage
+  const _id = localStorage.getItem("_id"); // Get userId from localStorage
 
   const toggleModal = () => {
     setModal(!modal);
@@ -21,7 +21,7 @@ export default function Modal({ openModal }) {
       selectedFiles.forEach((file) => {
         formData.append("images", file);
       });
-      formData.append("userId", userId); // Append userId to formData
+      formData.append("_id", _id); // Append userId to formData
 
       const response = await axios.post("http://localhost:3001/v1/api/essai/create", formData, {
         headers: {

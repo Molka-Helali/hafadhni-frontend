@@ -4,14 +4,14 @@ import Logo from '../Assets/LLogo.png';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
-  const [userId, setUserId] = useState('');
+  const [_id, set_id] = useState('');
   const navigate = useNavigate();
  const [role,setRole]=useState('');
   useEffect(() => {
-    // Retrieve userId from localStorage
-    const storedUserId = localStorage.getItem('userId');
-    if (storedUserId) {
-      setUserId(storedUserId);
+    // Retrieve _id from localStorage
+    const stored_id = localStorage.getItem('_id');
+    if (stored_id) {
+      set_id(stored_id);
     }
   }, []);
 
@@ -21,9 +21,9 @@ const Navbar = () => {
 
   const handleLogoutClick = () => {
     // Perform logout actions here
-    // Clear userId from localStorage and reset state
-    localStorage.removeItem('userId');
-    setUserId('');
+    // Clear _id from localStorage and reset state
+    localStorage.removeItem('_id');
+    set_id('');
   };
 
   return (
@@ -36,15 +36,15 @@ const Navbar = () => {
         <NavLink to="/Summarize" activeClassName="active" style={{ marginLeft: "38px", textDecoration: 'none' }}>Summarize</NavLink>
         <NavLink to="/Hafathni" activeClassName="active" style={{ marginLeft: "38px", textDecoration: 'none' }}>Hafathni</NavLink>
         <NavLink to="/Hafathnipro" activeClassName="active" style={{ marginLeft: "38px", textDecoration: 'none' }}>Hafathni Pro</NavLink>
-        {/* Check for userId and render My Profile and Logout buttons if userId exists */}
-        {userId ? (
+        {/* Check for _id and render My Profile and Logout buttons if _id exists */}
+        {_id ? (
           <div>
-            <NavLink to={`/profile/${userId}`} style={{ position: "absolute", top: "25px", left: "1100px", textDecoration: 'none' }}>My Profile</NavLink>
+            <NavLink to={`/profile/${_id}`} style={{ position: "absolute", top: "25px", left: "1100px", textDecoration: 'none' }}>My Profile</NavLink>
             <button className="login-buttonHome" onClick={handleLogoutClick}>Log out</button>
           </div>
         ) : (
           <div>
-            {/* Render Login and Signup buttons if userId does not exist */}
+            {/* Render Login and Signup buttons if _id does not exist */}
             <button className="login-buttonHome" onClick={handleLoginClick}>Login</button>
             <button className="try-free-button" onClick={handleLoginClick}>Signup</button>
           </div>

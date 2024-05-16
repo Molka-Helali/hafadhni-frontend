@@ -12,13 +12,13 @@ import axios from "axios";
 
 const Summarize = () => {
   const [text, setText] = useState("");
-  var userid = localStorage.getItem("userId");
+  var _id = localStorage.getItem("_id");
 
   const navigate = useNavigate();
 
   const handleMicroClick = async () => {
     try {
-      await axios.post('http://localhost:3001/v1/api/essai/text', { text: text, userId: userid });
+      await axios.post('http://localhost:3001/v1/api/essai/text', { text: text, _id: _id });
       console.log('Text added successfully to the database!');
       navigate(`/Hafathni?text=${text}`);
     } catch (error) {
