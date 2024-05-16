@@ -25,20 +25,17 @@ function Hafathni() {
   console.log(location)
   const queryParams = new URLSearchParams(location.search);
   const text = queryParams.get('text');
-  var _id = localStorage.getItem("_id");
+  var userid = localStorage.getItem("userId");
 
 
 
   const SendContent = async () => {
     try {
-      if (!_id) {
-        console.error('Error: _id is null');
-        return;
-      }
+    
   
       await axios.post('http://localhost:3001/v1/api/essai/text/hafathni', {
         content: recordedText,
-        _id: _id,
+        userId:userid
       });
       console.log('Text added successfully to the database!');
     } catch (error) {
