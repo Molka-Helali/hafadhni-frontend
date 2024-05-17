@@ -1,20 +1,50 @@
 import React, { useState, useEffect, useRef } from "react";
 import { AiFillFolderOpen } from "react-icons/ai";
-import { MdOutlineFileUpload } from "react-icons/md";
+import { MdOutlineFileUpload, MdOutlineClear } from "react-icons/md";
 import { FaTrashAlt } from "react-icons/fa";
-import { MdOutlineClear } from "react-icons/md";
+import axios from "axios";
 
 export default function Modal({ openModal }) {
   const [modal, setModal] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState([]);
   const fileInputRef = useRef(null);
+  const [uploadStatus, setUploadStatus] = useState(null);
+  const [userId, setUserId] = useState("");
+
+  useEffect(() => {
+    const id = localStorage.getItem('userId');
+    setUserId(id);
+  }, []);
 
   const toggleModal = () => {
     setModal(!modal);
   };
 
+  const fetchUserPhotos = async () => {
+    try {
+      const formData = new FormData();
+      selectedFiles.forEach((file) => {
+        formData.append("images", file);
+      });
+      formData.append("userId", userId);
+
+      const response = await axios.post("http://localhost:3001/v1/api/essai/create", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      console.log(response.data);
+      setUploadStatus("success");
+      setSelectedFiles([]);
+    } catch (error) {
+      console.error("Upload Error:", error);
+      setUploadStatus("error");
+    }
+  };
+
   const handleFileChange = (event) => {
-    const files = event.target.files;
+    const files = Array.from(event.target.files);
     if (files.length + selectedFiles.length > 3) {
       alert("You can only upload up to 3 files.");
       return;
@@ -23,8 +53,8 @@ export default function Modal({ openModal }) {
   };
 
   const resetFiles = () => {
-    setSelectedFiles([]); // Reset selected files
-    fileInputRef.current.value = null; // Reset file input value
+    setSelectedFiles([]);
+    fileInputRef.current.value = null;
   };
 
   useEffect(() => {
@@ -33,7 +63,6 @@ export default function Modal({ openModal }) {
     } else {
       document.body.classList.remove("active-modal");
     }
-    // Clean up the class on component unmount
     return () => {
       document.body.classList.remove("active-modal");
     };
@@ -43,7 +72,7 @@ export default function Modal({ openModal }) {
     if (typeof openModal === "function") {
       openModal();
     }
-    toggleModal(); // Toggle modal after opening
+    toggleModal();
   };
 
   const removeFile = (index) => {
@@ -53,7 +82,11 @@ export default function Modal({ openModal }) {
   };
 
   const handleUploadClick = () => {
-    fileInputRef.current.click(); // Trigger file input click
+    if (selectedFiles.length > 0) {
+      fetchUserPhotos();
+    } else {
+      alert("Please select at least one file to upload.");
+    }
   };
 
   return (
@@ -78,10 +111,13 @@ export default function Modal({ openModal }) {
                 height: "55px",
               }}
             >
-              <button className="blue-button" onClick={handleUploadClick}>
+              <button 
+                className="blue-button" 
+                onClick={() => fileInputRef.current.click()} 
+                disabled={selectedFiles.length >= 3}
+              >
                 <MdOutlineFileUpload className="icon" />
               </button>
-              {/* Hidden file input */}
               <input
                 type="file"
                 ref={fileInputRef}
@@ -90,7 +126,9 @@ export default function Modal({ openModal }) {
                 multiple
               />
             </div>
-            <h2 style={{ color: "blue", position: "relative", right: -85, top: -25 }}>Upload File </h2>
+            <h2 style={{ color: "blue", position: "relative", right: -85, top: -25 }}>
+              Upload File
+            </h2>
             {selectedFiles.map((file, index) => (
               <div key={index} className="file-name" style={{ width: "300px", height: "30px" }}>
                 <p>{file.name}</p>
@@ -99,21 +137,35 @@ export default function Modal({ openModal }) {
                 </div>
               </div>
             ))}
-            <button className="close-modal" style={{ border: "none", color: "black", width: "25px", height: "40px" }} onClick={toggleModal}>
+            <button
+              className="close-modal"
+              style={{ border: "none", color: "black", width: "25px", height: "40px" }}
+              onClick={toggleModal}
+            >
               <MdOutlineClear />
             </button>
-            {/* Upload Button */}
-            <button className="upload-button" style={{ width: "319px", position: "relative", top: "2px", left: "2px" }} disabled={selectedFiles.length === 0} onClick={resetFiles}>
+            <button
+              className="upload-button"
+              style={{ width: "319px", position: "relative", top: "2px", left: "2px" }}
+              disabled={selectedFiles.length === 0}
+              onClick={() => {
+                handleUploadClick();
+                resetFiles();
+                setUploadStatus(null);
+              }}
+            >
               Upload
             </button>
+            {uploadStatus === "success" && <p style={{ color: "green" }}>Upload successful!</p>}
+            {uploadStatus === "error" && <p style={{ color: "red" }}>Error uploading files. Please try again.</p>}
           </div>
         </div>
       )}
       <style jsx>{`
         .file-name {
           color: black;
-          background-color: #dbe0f3; /* Transparent background */
-          border: 1px solid #dbe0f3; /* Grey border */
+          background-color: #dbe0f3;
+          border: 1px solid #dbe0f3;
           padding: 10px;
           margin-top: 10px;
           border-radius: 20px;
@@ -123,7 +175,6 @@ export default function Modal({ openModal }) {
           margin: 0;
         }
 
-        /* Style for the Upload button */
         .upload-button {
           background-color: blue;
           color: #fff;
