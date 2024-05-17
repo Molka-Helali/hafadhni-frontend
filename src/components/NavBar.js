@@ -4,9 +4,14 @@ import Logo from '../Assets/LLogo.png';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const [userId,setUserId] = useState("")
   const [_id, set_id] = useState('');
   const navigate = useNavigate();
  const [role,setRole]=useState('');
+ useEffect(()=>{
+  var id = localStorage.getItem('userId')
+  setUserId(id)
+ })
   useEffect(() => {
     // Retrieve _id from localStorage
     const stored_id = localStorage.getItem('_id');
@@ -22,7 +27,7 @@ const Navbar = () => {
   const handleLogoutClick = () => {
     // Perform logout actions here
     // Clear _id from localStorage and reset state
-    localStorage.removeItem('_id');
+    localStorage.removeItem('userId');
     set_id('');
   };
 
@@ -37,9 +42,9 @@ const Navbar = () => {
         <NavLink to="/Hafathni" activeClassName="active" style={{ marginLeft: "38px", textDecoration: 'none' }}>Hafathni</NavLink>
         <NavLink to="/Hafathnipro" activeClassName="active" style={{ marginLeft: "38px", textDecoration: 'none' }}>Hafathni Pro</NavLink>
         {/* Check for _id and render My Profile and Logout buttons if _id exists */}
-        {_id ? (
+        {userId ? (
           <div>
-            <NavLink to={`/profile/${_id}`} style={{ position: "absolute", top: "25px", left: "1100px", textDecoration: 'none' }}>My Profile</NavLink>
+            <NavLink to={`/profile/${userId}`} style={{ position: "absolute", top: "25px", left: "1100px", textDecoration: 'none' }}>My Profile</NavLink>
             <button className="login-buttonHome" onClick={handleLogoutClick}>Log out</button>
           </div>
         ) : (

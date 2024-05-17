@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { AiFillFolderOpen } from "react-icons/ai";
 import { MdOutlineFileUpload, MdOutlineClear } from "react-icons/md";
 import { FaTrashAlt } from "react-icons/fa";
@@ -7,41 +7,38 @@ import axios from "axios";
 export default function Modal({ openModal }) {
   const [modal, setModal] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState([]);
-  const [_id, setId] = useState(null);
-  const [users, setUsers] = useState(null); // Define setUsers
-
+  const userId = localStorage.getItem('userId'); // Assuming userId is stored in localStorage
   const fileInputRef = useRef(null);
 
   const toggleModal = () => {
     setModal(!modal);
   };
 
-  const fetchUserPhotos = async (_id) => {
+  const fetchUserPhotos = async () => {
     try {
-      const formData = new FormData();
-      formData.append("_id", _id); // Assuming userId is passed as a prop
-      console.log("success");
-      selectedFiles.forEach((file) => {
-        formData.append("files", file);
-      });
+        const formData = new FormData();
+        const userId = localStorage.getItem('userId');
+        formData.append("userId", userId); // Assuming userId is passed as a prop
+        selectedFiles.forEach((file) => {
+            formData.append("files", file);
+        });
 
-      await axios.post("http://localhost:3001/v1/api/essai/create",  {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+        await axios.post("http://localhost:3001/v1/api/essai/create", formData, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+        });
 
-      // Optionally, you can fetch updated user data after upload
-      // For example: fetchUserPhotos(userId);
-      
-      // Close modal after successful upload
-      toggleModal();
+        // Optionally, you can fetch updated user data after upload
+        // For example: fetchUserPhotos(userId);
+        
+        // Close modal after successful upload
+        toggleModal();
     } catch (error) {
-      console.error("Error uploading files:", error);
+        console.error("Error uploading files:", error);
     }
-  };
+};
   
-
   const handleFileChange = (event) => {
     const files = event.target.files;
     if (files.length + selectedFiles.length > 3) {
@@ -111,7 +108,7 @@ export default function Modal({ openModal }) {
             <button className="close-modal" style={{ border: "none", color: "black", width: "25px", height: "40px" }} onClick={toggleModal}>
               <MdOutlineClear />
             </button>
-            <button className="upload-button" style={{ width: 319, position: "relative", top: "2px", left: "2px" }} disabled={selectedFiles.length === 0}>Upload</button>
+            <button className="upload-button" style={{ width: 319, position: "relative", top: "2px", left: "2px" }} disabled={selectedFiles.length === 0} onClick={fetchUserPhotos}>Upload</button>
           </div>
         </div>
       )}

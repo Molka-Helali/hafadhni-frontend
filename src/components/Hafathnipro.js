@@ -9,6 +9,7 @@ const Hafathnipro = () => {
   const handleGetStartNowClick = () => {
     navigate('/');
   };
+  
   return (
     <div>
      <Navbar />

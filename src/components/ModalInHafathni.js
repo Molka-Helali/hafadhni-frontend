@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { AiFillFolderOpen } from "react-icons/ai";
 import { MdOutlineFileUpload, MdOutlineClear } from "react-icons/md";
@@ -9,33 +9,39 @@ export default function Modal({ openModal }) {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [uploadStatus, setUploadStatus] = useState(null);
   const fileInputRef = useRef(null);
+  const [userId, setUserId] = useState("");
 
+  useEffect(() => {
+    const id = localStorage.getItem('userId');
+    setUserId(id);
+  }, []);
 
   const toggleModal = () => {
     setModal(!modal);
   };
-const fetchUserPhotos = async () => {
-    try {
-        const formData = new FormData();
-        selectedFiles.forEach((file) => {
-            formData.append("images", file);
-        });
-     
-      
-        const response = await axios.post("http://localhost:3001/v1/api/essai/create", formData, {
-            headers: {
-                "Content-Type": "multipart/form-data",
-            },
-        });
-        console.log(response.data);
 
-        setUploadStatus("success");
-        setSelectedFiles([]);
+  const fetchUserPhotos = async () => {
+    try {
+      const formData = new FormData();
+      selectedFiles.forEach((file) => {
+        formData.append("images", file);
+        formData.append("userId", userId);
+      });
+
+      const response = await axios.post("http://localhost:3001/v1/api/essai/create", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      console.log(response.data);
+
+      setUploadStatus("success");
+      setSelectedFiles([]);
     } catch (error) {
-        console.error("Upload Error:", error);
-        setUploadStatus("error");
+      console.error("Upload Error:", error);
+      setUploadStatus("error");
     }
-};
+  };
 
   const handleFileChange = (event) => {
     const files = event.target.files;

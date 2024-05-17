@@ -30,9 +30,14 @@ const Login = () => {
       );
       if (response.data.success) {
         console.log('User logged in successfully');
+        const userId = response.data.id; 
+        localStorage.setItem('userId', userId);
+        navigate(`/profile/${userId}`);
+
+
         const { role, id } = response.data; // Assuming response contains user role
         console.log(response.data)
-        localStorage.setItem('_id', id);
+        localStorage.setItem('userId', id);
         if (role === 'Admin') {
           navigate('/DachbordAdmin');
         } else {

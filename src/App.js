@@ -1,5 +1,5 @@
 // App.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import "./App.css";
 import Summarize from './components/Summarize';
@@ -20,8 +20,14 @@ import ConfirmePasword from './components/ConfirmePasword';
 import DachbordAdmin from './components/DachbordAdmin';
 import AdminEdit from './components/AdminEdit';
 import Modal from './components/Modal'
+import NotFound from './components/NotFound';
 
 function App() {
+  const [userId,setUserId] = useState("")
+ useEffect(()=>{
+  var id = localStorage.getItem('userId')
+  setUserId(id)
+ })
   return (
     <div className="App">
       <Router>       
@@ -37,7 +43,7 @@ function App() {
           <Route path="/LastMistakes" element={<LastMistakes/>} />
           <Route path="/HistoriqueScore" element={<HistoriqueScore/>} />
           <Route path="/LineChartine" element={<LineChartine />} />
-         <Route path="/profile/:id" element={<ProfileUser />} />
+          <Route path="/profile/:id" element={userId ? <ProfileUser /> : <NotFound/>} /> 
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
           <Route path="/ConfirmePasword" element={<ConfirmePasword/>} />
           <Route path="/DachbordAdmin" element={<DachbordAdmin/>} />
