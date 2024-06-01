@@ -8,7 +8,7 @@ import Hafathni from './components/Hafathni';
 import Hafathnipro from './components/Hafathnipro';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
-import Upload from './components/Upload';
+
 import Mistakes from './components/Mistakes';
 import LastMistakes from './components/LastMistakes';
 import HistoriqueScore from './components/HistoriqueScore';
@@ -38,12 +38,15 @@ function App() {
           <Route path="/Hafathnipro" element={<Hafathnipro />} />
           <Route path="/Login" element={<Login/>} />
           <Route path="/SignUp" element={<SignUp/>} />
-          <Route path="/Upload" element={<Upload/>} />
+        
           <Route path="/Mistakes" element={<Mistakes/>} />
           <Route path="/LastMistakes" element={<LastMistakes/>} />
           <Route path="/HistoriqueScore" element={<HistoriqueScore/>} />
           <Route path="/LineChartine" element={<LineChartine />} />
-          <Route path="/profile/:id" element={userId ? <ProfileUser /> : <NotFound/>} /> 
+          <Route 
+  path="/profile/:id" 
+  element={userId ? <ProfileUser /> : <NotFound />} 
+/>
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
           <Route path="/ConfirmePasword" element={<ConfirmePasword/>} />
           <Route path="/DachbordAdmin" element={<DachbordAdmin/>} />

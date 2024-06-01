@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import Ellipse1 from '../Assets/Ellipse1.png';
-import Ellipse2 from '../Assets/Ellipse 2.png'; // Corrected filename
+import Ellipse2 from '../Assets/Ellipse2.png'; // Corrected filename
 import Navbar from '../components/NavBar';
 import { PiPencilLineLight } from 'react-icons/pi';
 

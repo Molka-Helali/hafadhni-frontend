@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Ellipse1 from '../Assets/Ellipse1.png';
-import Ellipse2 from '../Assets/Ellipse 2.png'; // Corrected filename
+import Ellipse2 from '../Assets/Ellipse2.png'; // Corrected filename
 import Logo from '../Assets/LLogo.png';
 import LoginPh from '../Assets/LoginPh.svg';
 import { RiLockPasswordFill } from 'react-icons/ri';

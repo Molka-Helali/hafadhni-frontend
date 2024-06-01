@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../components/NavBar';
 import Ellipse1 from '../Assets/Ellipse1.png';
-import Ellipse2 from '../Assets/Ellipse 2.png';
+import Ellipse2 from '../Assets/Ellipse2.png';
 import { HiOutlinePhotograph } from 'react-icons/hi';
 import { BsFillEmojiDizzyFill } from 'react-icons/bs';
 import { BiChevronRight } from 'react-icons/bi';

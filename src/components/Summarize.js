@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Navbar from "./NavBar";
 import Ellipse1 from '../Assets/Ellipse1.png';
-import Ellipse2 from '../Assets/Ellipse 2.png';
+import Ellipse2 from '../Assets/Ellipse2.png';
 import traduction from '../Assets/traduction.svg';
 import { FaMicrophoneAlt } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
-
-
+import   hafathni from "../Assets/hafthni.png";
+import { MdOutlineArrowRightAlt } from "react-icons/md";
 import Modal from '../components/Modal';
 import axios from "axios";
 
@@ -44,6 +44,7 @@ const Summarize = () => {
       </div>
       <div className="originalFile">Original File</div>
       <div className="box">
+    
         <div className='hellomyfriend'>
           <textarea className="input-container2" placeholder="" onChange={e => setText(e.target.value)}></textarea>
         </div>
@@ -53,8 +54,15 @@ const Summarize = () => {
       <hr className="lineSum2" />
 
       <div>
-        <button className="MicroButtonSu" onClick={handleMicroClick}>
-          <FaMicrophoneAlt className="Micro-iconSu" />
+   
+      <button className="MicroButtonSu" onClick={handleMicroClick}>
+  
+  <span style={{ position: "relative", top: "-1px", right: "2px", height: "30px", color: "white" }}>Hafathni</span>
+
+
+ 
+
+   
           <button className="button_SummarizeSum" onClick={handleMicroClick}>Summarize</button>
         </button>
       </div>
@@ -79,12 +87,11 @@ const Summarize = () => {
         </div>
       </div>
       <hr className="lineSum3" style={{ position: 'absolute', top: '727px', left: '800px', width: '647px', border: '0.1px solid #ccc' }} />
-      <button className="MicroButtonSu2" onClick={handleMicroClick}>
-        <FaMicrophoneAlt className="Micro-iconSu2" />
-      </button>
+      <button className="MicroButtonSu2" onClick={handleMicroClick}>Hafathni</button>
+      <img src={hafathni} alt="hafathni" />
       <Modal />
-    </div>
-  );
-}
+      </div>
+      );
+      }
 
 export default Summarize;

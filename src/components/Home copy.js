@@ -4,7 +4,7 @@ import Navbar from '../components/NavBar';
 import { HiOutlineMicrophone } from 'react-icons/hi2';
 import { IoDocumentTextOutline } from 'react-icons/io5';
 import Ellipse1 from '../Assets/Ellipse1.png';
-import Ellipse2 from '../Assets/Ellipse2.png';
+import Ellipse2 from '../Assets/Ellipse 2.png';
 import HomePhoto from '../Assets/HomePh.svg';
 
 const Home = () => {
@@ -13,7 +13,7 @@ const Home = () => {
 
 
   const handleHafathniClick = () => {
-    navigate('/Hafathni');
+    navigate('/Upload');
   };
 
   const handleSummerizeHomeClick = () => {

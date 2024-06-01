@@ -19,14 +19,15 @@ const Navbar = () => {
       set_id(stored_id);
     }
   }, []);
-
   const handleLoginClick = () => {
     navigate('/Login');
   };
 
+  const handleSignupClick = () => {
+    navigate('/SignUp.js');
+  };
+
   const handleLogoutClick = () => {
-    // Perform logout actions here
-    // Clear _id from localStorage and reset state
     localStorage.removeItem('userId');
     set_id('');
   };
@@ -51,7 +52,7 @@ const Navbar = () => {
           <div>
             {/* Render Login and Signup buttons if _id does not exist */}
             <button className="login-buttonHome" onClick={handleLoginClick}>Login</button>
-            <button className="try-free-button" onClick={handleLoginClick}>Signup</button>
+            <button className="try-free-button" onClick={handleSignupClick }>Signup</button>
           </div>
         )}
         {/* Move the Admin NavLink inside the nav-links div */}

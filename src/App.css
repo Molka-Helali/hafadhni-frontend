@@ -1235,13 +1235,13 @@ left: 65px;
   cursor: pointer;
   background-color:blue;
   border: 0.5px solid blue;
-  border-radius: 70px ;
+  border-radius: 5px;
   color: #ebeced;
   float: right; /* Position the remove icon to the right */
   position: relative;
   top: -28px;
   left: -720px;
-  width: 58px;
+  width: 88px;
   height: 36px;
 }
 .button_SummarizeSum{
@@ -1252,8 +1252,9 @@ left: 65px;
   background-color:blue; /* Green background */
   color: white;
   position: absolute; /* Enable absolute positioning */
-  bottom: -2px; /* Offset 50px from the top */
+  bottom: -1px; /* Offset 50px from the top */
   left: -120px;
+  
 }
 .FillSum{
   cursor: pointer;
@@ -1263,8 +1264,8 @@ left: 65px;
   color: blue;
   float: right; /* Position the remove icon to the right */
   position: relative;
-  top: -768px;
-  right: 1200px;
+  top: -790px;
+  right: 1180px;
   width: 58px;
   height: 36px;
 }
@@ -1289,14 +1290,14 @@ left: 65px;
   cursor: pointer;
   background-color:blue;
   border: 0.5px solid blue;
-  border-radius: 70px ;
+  border-radius: 5px;
   color: #ebeced;
   float: right; /* Position the remove icon to the right */
   position: relative;
   top: -768px;
   left: -14px;
-  width: 58px;
-  height: 36px;
+  width: 88px;
+  height: 38px;
 }
 /*HafathniPro*/
 .allMove{
@@ -1778,4 +1779,3 @@ body.active-modal {
   background-color: #909ed1; /* Change to the desired background color */
   border-radius: 50%;
 }
-

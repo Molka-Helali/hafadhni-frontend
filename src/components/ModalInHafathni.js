@@ -4,7 +4,7 @@ import { AiFillFolderOpen } from "react-icons/ai";
 import { MdOutlineFileUpload, MdOutlineClear } from "react-icons/md";
 import { FaTrashAlt } from "react-icons/fa";
 
-export default function Modal({ openModal }) {
+export default function Modal({ openModal, setReferenceText }) {
   const [modal, setModal] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [uploadStatus, setUploadStatus] = useState(null);
@@ -28,12 +28,17 @@ export default function Modal({ openModal }) {
         formData.append("userId", userId);
       });
 
-      const response = await axios.post("http://localhost:3001/v1/api/essai/create", formData, {
+      const response = await axios.post("http://localhost:5000/process_image", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
       console.log(response.data);
+
+      // Set the referenceText state with the response data
+      if (response.data.text) {
+        setReferenceText(response.data.text);
+      }
 
       setUploadStatus("success");
       setSelectedFiles([]);
@@ -134,7 +139,7 @@ export default function Modal({ openModal }) {
           </div>
         </div>
       )}
-      <style jsx>{`
+      <style>{`
         .file-name {
           color: black;
           background-color: #dbe0f3;
