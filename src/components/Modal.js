@@ -3,23 +3,19 @@ import { AiFillFolderOpen } from "react-icons/ai";
 import { MdOutlineFileUpload, MdOutlineClear } from "react-icons/md";
 import { FaTrashAlt } from "react-icons/fa";
 import axios from "axios";
-
 export default function Modal({ openModal }) {
   const [modal, setModal] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState([]);
   const fileInputRef = useRef(null);
   const [uploadStatus, setUploadStatus] = useState(null);
   const [userId, setUserId] = useState("");
-
   useEffect(() => {
     const id = localStorage.getItem('userId');
     setUserId(id);
   }, []);
-
   const toggleModal = () => {
     setModal(!modal);
   };
-
   const fetchUserPhotos = async () => {
     try {
       const formData = new FormData();
@@ -27,13 +23,11 @@ export default function Modal({ openModal }) {
         formData.append("images", file);
       });
       formData.append("userId", userId);
-
-      const response = await axios.post("http://localhost:3001/v1/api/essai/create", formData, {
+      const response = await axios.post("http://localhost:5000/process_image", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
-
       console.log(response.data);
       setUploadStatus("success");
       setSelectedFiles([]);
@@ -42,7 +36,6 @@ export default function Modal({ openModal }) {
       setUploadStatus("error");
     }
   };
-
   const handleFileChange = (event) => {
     const files = Array.from(event.target.files);
     if (files.length + selectedFiles.length > 3) {
@@ -51,12 +44,10 @@ export default function Modal({ openModal }) {
     }
     setSelectedFiles([...selectedFiles, ...files]);
   };
-
   const resetFiles = () => {
     setSelectedFiles([]);
     fileInputRef.current.value = null;
   };
-
   useEffect(() => {
     if (modal) {
       document.body.classList.add("active-modal");
@@ -67,20 +58,17 @@ export default function Modal({ openModal }) {
       document.body.classList.remove("active-modal");
     };
   }, [modal]);
-
   const handleOpenModal = () => {
     if (typeof openModal === "function") {
       openModal();
     }
     toggleModal();
   };
-
   const removeFile = (index) => {
     const updatedFiles = [...selectedFiles];
     updatedFiles.splice(index, 1);
     setSelectedFiles(updatedFiles);
   };
-
   const handleUploadClick = () => {
     if (selectedFiles.length > 0) {
       fetchUserPhotos();
@@ -88,7 +76,6 @@ export default function Modal({ openModal }) {
       alert("Please select at least one file to upload.");
     }
   };
-
   return (
     <>
       <div onClick={handleOpenModal}>
@@ -96,7 +83,6 @@ export default function Modal({ openModal }) {
           <AiFillFolderOpen className="FillFolderSum" />
         </button>
       </div>
-
       {modal && (
         <div className="modal">
           <div onClick={toggleModal} className="overlay"></div>
@@ -170,11 +156,9 @@ export default function Modal({ openModal }) {
           margin-top: 10px;
           border-radius: 20px;
         }
-
         .file-name p {
           margin: 0;
         }
-
         .upload-button {
           background-color: blue;
           color: #fff;
@@ -184,7 +168,6 @@ export default function Modal({ openModal }) {
           margin-top: 20px;
           cursor: pointer;
         }
-
         .upload-button:hover {
           background-color: #0056b3;
         }

@@ -39,7 +39,8 @@ const HistoriqueScore = () => {
           return (
             <div key={index} className='session-history'>
               <span>{scoreDate.toLocaleDateString()}</span>
-              <span>{score.score.toFixed(1)}% {score.score >= 90 ? 'EXCELLENT' : score.score >= 75 ? 'GREAT' : 'GOOD'}</span>
+              <span>{score.score.toFixed(1)}% {score.score >= 76 ? 'EXCELLENT' : score.score >= 51 ? 'GREAT' : score.score >= 26 ? 'MODERATE' : 'LOW'}</span>
+
               <span>{scoreDate.toLocaleTimeString()}</span>
             </div>
           );

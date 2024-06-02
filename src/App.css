@@ -1251,9 +1251,9 @@ left: 65px;
   border-radius: 5px;
   background-color:blue; /* Green background */
   color: white;
-  position: absolute; /* Enable absolute positioning */
-  bottom: -1px; /* Offset 50px from the top */
-  left: -120px;
+  position:absolute;
+  bottom: -98px; /* Offset 50px from the top */
+  left: 500px;
   
 }
 .FillSum{

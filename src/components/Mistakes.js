@@ -33,11 +33,11 @@ const Mistakes = () => {
       <div className='NameOfText'>{new Date().toLocaleString()}</div>
       {/* Display referenceText and recordedText */}
       <div className="boxMisToo">
-  <div className='Expected1'>Expected</div>
-<div className='ExpectedName' dangerouslySetInnerHTML={{ __html: highlightedText.expected }}></div>
-  <div className='Recited1'>Recited</div>
-<div className='RecitedName' dangerouslySetInnerHTML={{ __html: highlightedText.recited }}></div>
-</div>
+        <div className='Expected1'>Expected</div>
+      <div className='ExpectedName' dangerouslySetInnerHTML={{ __html: highlightedText.expected }}></div>
+        <div className='Recited1'>Recited</div>
+      <div className='RecitedName' dangerouslySetInnerHTML={{ __html: highlightedText.recited }}></div>
+      </div>
 
       <hr className="line-Mi" />
       <div className="box3" onClick={handleMistakeClick}>

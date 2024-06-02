@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Ellipse1 from '../Assets/Ellipse1.png';
 import Ellipse2 from '../Assets/Ellipse2.png';
 import Navbar from '../components/NavBar';
@@ -15,6 +15,7 @@ function Hafathni() {
   const [recordedText, setRecordedText] = useState('');
   const [listening, setListening] = useState(false);
   const [textVisible, setTextVisible] = useState(true); 
+
   const [imageText, setImageText] = useState('');
   const [referenceText, setReferenceText] = useState('');
   const [werScore, setWerScore] = useState(null);
@@ -151,7 +152,7 @@ function Hafathni() {
           <textarea
             className="input-containerHafathni"
             placeholder="I'm listening to you..."
-            value={recordedText || imageText || ""}
+            value={recordedText || imageText || referenceText || ""}
             onChange={(e) => setRecordedText(e.target.value)}
           ></textarea>
         )}
@@ -178,7 +179,6 @@ function Hafathni() {
       <button className="MicroButton" onClick={listening ? stopListening : startListening} title={listening ? "Stop Microphone" : "Start Microphone"}>
         <FaMicrophoneAlt className={listening ? "Micro-icon active" : "Micro-icon"} />
       </button>
-      
       <div dangerouslySetInnerHTML={{ __html: highlightedText }}></div>
       <ModalInHafathni setReferenceText={setImageText} className="Mistake-icon" />
     </div>
